@@ -1,0 +1,12 @@
+{
+  "name": "f22",
+  "private": true,
+  "cache": false,
+  "dependencies": {
+    "card": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
