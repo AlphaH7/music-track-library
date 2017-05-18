@@ -1,0 +1,43 @@
+<table cellspacing="0" class="table" ng-show="arg === 'tracks'" >
+  <thead >
+    <tr md-row>
+      <th class="centre"><span>ID</span></th>
+      <th><span>title</span></th>
+      <th><span>Rating</span></th>
+    </tr>
+  </thead>
+  <tbody md-body style="max-height: 20vh" ng-repeat="track in tracks.results" >
+    <tr>
+      <td>{{track.id}}</td>
+      <td>{{track.title}}</td>
+      <td>{{track.rating}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellspacing="0" class="table" ng-if="arg === 'genres'" >
+  <thead >
+    <tr md-row>
+      <th class="centre"><span>ID</span></th>
+      <th><span>name</span></th>
+    </tr>
+  </thead>
+  <tbody md-body style="max-height: 20vh" ng-repeat="track in tracks.results" >
+    <tr>
+      <td>{{track.id}}</td>
+      <td>{{track.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<md-menu-item ng-if="arg" >
+  <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
+</md-menu-item>
+
+<md-menu-item ng-if="!arg" >
+  <md-button class="md-raised md-primary" ng-click="list('tracks')" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>list tracks</span></md-button>
+</md-menu-item>
+<md-menu-item ng-if="!arg" >
+  <md-button class="md-raised md-primary" ng-click="list('genres')" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>list genres</span></md-button>
+</md-menu-item>

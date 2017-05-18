@@ -25,10 +25,10 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
       url:'/dashboard',
       templateUrl: 'modules/home/home.html',
     })
-    .state('app.listTracks',{
-      url:'/tracks',
-      templateUrl: 'modules/tracks/tracks.html',
-      controller: 'listTracks',
+    .state('app.list',{
+      url:'/list',
+      templateUrl: 'modules/list/list.html',
+      controller: 'list',
     });
     $urlRouterProvider.when('','app/dashboard');
 

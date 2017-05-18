@@ -1,17 +1,19 @@
-angular.module('track-lib').controller('listTracks',function($scope , $resource , env , $http){
+angular.module('track-lib').controller('list',function($scope , $resource , env , $http){
   $scope.displayMode = "list";
   $scope.tracks = null;
-  $scope.page = 1;
 
-  $scope.allTracks = $resource(env + "tracks?page=:page", { page: "@page" });
-
-  $scope.listTracks = function () {
-      $scope.tracks = $scope.allTracks.get({page : $scope.page });
-      $scope.page = $scope.page + 1;
+  $scope.list = function (arg) {
+      $scope.arg = arg;
+      $scope.allTracks = $resource(env + arg);
+      $scope.tracks = $scope.allTracks.get();
       console.log($scope.tracks)
   };
 
-  $scope.listTracks(); 
+  $scope.nextPage = function (d) {
+      $scope.nextLink = $resource(d);
+      $scope.tracks = $scope.nextLink.get();
+      console.log($scope.tracks)
+  };
 
 
 });
