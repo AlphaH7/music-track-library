@@ -1,0 +1,85 @@
+body{
+	font-family: 'Josefin Sans', sans-serif;
+	background-image: url("../images/bg.jpg");
+	background-color: rgb(38,38,38);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.header{
+	font-family: 'Lobster', cursive;
+	margin: 15px 0px;
+}
+
+
+md-card.main-card{
+	height: 80vh;
+	width: 40vw;
+	padding: 30px 20px;
+	text-align: center;
+	border-radius: 10px;
+	background: rgba(255,255,255, 0.8);
+	-webkit-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
+	-moz-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
+	box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
+}
+
+md-menu-item{
+	margin: 20px 30px;
+}
+.full-height{
+	height: 100vh;
+}
+
+.height100{
+	height: 100%;
+}
+
+
+.center{
+	text-align: center;
+}
+
+table{
+	width: 100%;
+	padding: 30px;
+	max-height: 60vh;
+}
+
+#spectrum {color: #575757 !important;}
+@-webkit-keyframes colours {
+     0% {color:  #d7e7ea;}
+     15% {color: #8bc5d1;}
+     30% {color: #39f;}
+     45% {color: #8c8298;}
+     60% {color: #8bc5d1;}
+     75% {color: #39f;}
+     90% {color: #999999;}
+    100% {color: #d7e7ea;}
+
+}
+@-moz-keyframes colours {
+     0% {color:  #d7e7ea;}
+     15% {color: #8bc5d1;}
+     30% {color: #39f;}
+     45% {color: #8c8298;}
+     60% {color: #8bc5d1;}
+     75% {color: #39f;}
+     90% {color: #999999;}
+    100% {color: #d7e7ea;}
+
+}
+
+#spectrum {
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: colours;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-direction: normal;
+    -moz-animation-duration: 60s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-name: colours;
+    -moz-animation-timing-function: ease;
+}
