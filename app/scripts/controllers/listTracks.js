@@ -1,4 +1,4 @@
-angular.module('track-lib').controller('list',function($scope , trackService , $resource , env , $http){
+angular.module('track-lib').controller('list',function($scope  , $resource , env , $http){
   $scope.displayMode = "list";
   $scope.tracks = null;
 
@@ -14,8 +14,5 @@ angular.module('track-lib').controller('list',function($scope , trackService , $
       $scope.tracks = $scope.nextLink.get();
       console.log($scope.tracks)
   };
-
-  $scope.search
-
 
 });
