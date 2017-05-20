@@ -1,6 +1,7 @@
 /* line 1, ../../app/styles/style.scss */
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 200;
   background-image: url("../images/bg.jpg");
   background-color: #262626;
   background-repeat: no-repeat;
@@ -8,18 +9,18 @@ body {
   background-position: center;
 }
 
-/* line 10, ../../app/styles/style.scss */
+/* line 11, ../../app/styles/style.scss */
 .header {
   font-family: 'Lobster', cursive;
   margin: 15px 0px;
 }
 
-/* line 15, ../../app/styles/style.scss */
+/* line 16, ../../app/styles/style.scss */
 md-input-container {
   margin-bottom: 0px !important;
 }
 
-/* line 19, ../../app/styles/style.scss */
+/* line 20, ../../app/styles/style.scss */
 md-card.main-card {
   height: 80vh;
   width: 70vw;
@@ -30,32 +31,32 @@ md-card.main-card {
   box-shadow: 0px 0px 35px 3px #c2ddff;
 }
 
-/* line 31, ../../app/styles/style.scss */
+/* line 32, ../../app/styles/style.scss */
 md-card.table {
   box-shadow: 0px 0px 3px 0px #969696;
 }
 
-/* line 37, ../../app/styles/style.scss */
+/* line 38, ../../app/styles/style.scss */
 md-card.features {
   width: 100%;
 }
 
-/* line 41, ../../app/styles/style.scss */
+/* line 42, ../../app/styles/style.scss */
 md-menu-item {
   margin: 20px 30px;
 }
 
-/* line 44, ../../app/styles/style.scss */
+/* line 45, ../../app/styles/style.scss */
 .full-height {
   height: 100vh;
 }
 
-/* line 48, ../../app/styles/style.scss */
+/* line 49, ../../app/styles/style.scss */
 .height100 {
   height: 100%;
 }
 
-/* line 53, ../../app/styles/style.scss */
+/* line 54, ../../app/styles/style.scss */
 .center {
   text-align: center;
   margin: 0 auto;
@@ -63,7 +64,7 @@ md-menu-item {
   align-items: center;
 }
 
-/* line 59, ../../app/styles/style.scss */
+/* line 60, ../../app/styles/style.scss */
 .right {
   width: 100%;
   text-align: right;
@@ -72,7 +73,7 @@ md-menu-item {
   align-items: right;
 }
 
-/* line 68, ../../app/styles/style.scss */
+/* line 69, ../../app/styles/style.scss */
 .thead {
   padding: 10px 0px;
   padding: 10px 0px;
@@ -80,30 +81,30 @@ md-menu-item {
   background: #A7B2BA;
 }
 
-/* line 75, ../../app/styles/style.scss */
+/* line 76, ../../app/styles/style.scss */
 .tbody {
   padding: 10px 0px;
   background: #e4e7ea;
   border-bottom: 1px #d3d8dc solid;
 }
 
-/* line 81, ../../app/styles/style.scss */
+/* line 82, ../../app/styles/style.scss */
 .scrollTable {
   overflow: scroll;
   height: 55vh;
 }
 
-/* line 86, ../../app/styles/style.scss */
+/* line 87, ../../app/styles/style.scss */
 tbody {
   max-height: 50vh !important;
   overflow: scroll;
 }
 
-/* line 91, ../../app/styles/style.scss */
+/* line 92, ../../app/styles/style.scss */
 #spectrum {
   color: #575757 !important;
 }
-/* line 115, ../../app/styles/style.scss */
+/* line 116, ../../app/styles/style.scss */
 #spectrum {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 60s;
@@ -117,22 +118,22 @@ tbody {
   -moz-animation-timing-function: ease;
 }
 
-/* line 128, ../../app/styles/style.scss */
+/* line 129, ../../app/styles/style.scss */
 .my-custom-stars .button .material-icons {
   font-size: 30px;
 }
 
-/* line 132, ../../app/styles/style.scss */
+/* line 133, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-on .material-icons {
   color: #0066CC;
 }
 
-/* line 136, ../../app/styles/style.scss */
+/* line 137, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-off .material-icons {
   color: #99ccff;
 }
 
-/* line 141, ../../app/styles/style.scss */
+/* line 142, ../../app/styles/style.scss */
 .box-one.ng-hide-add {
   animation: 0.75s hide;
 }
@@ -155,7 +156,7 @@ tbody {
     transform: scale(0);
   }
 }
-/* line 184, ../../app/styles/style.scss */
+/* line 185, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
   animation: 0.25s show;
 }
@@ -174,12 +175,12 @@ tbody {
     transform: scale(1);
   }
 }
-/* line 219, ../../app/styles/style.scss */
+/* line 220, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar, md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 223, ../../app/styles/style.scss */
+/* line 224, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
   background-color: #70a5cc;
 }
