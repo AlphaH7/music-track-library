@@ -12,17 +12,30 @@ body{
 	margin: 15px 0px;
 }
 
+md-input-container{
+	margin-bottom: 0px!important;
+}
 
 md-card.main-card{
 	height: 80vh;
-	width: 40vw;
+	width: 70vw;
 	padding: 30px 20px;
 	text-align: center;
 	border-radius: 10px;
-	background: rgba(255,255,255, 0.8);
+	background: rgba(255,255,255, 0.9);
 	-webkit-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
 	-moz-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
 	box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
+}
+
+md-card.table{
+	-webkit-box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
+	-moz-box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
+	box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
+}
+
+md-card.features{
+	width: 100%;
 }
 
 md-menu-item{
@@ -39,12 +52,40 @@ md-menu-item{
 
 .center{
 	text-align: center;
+	margin: 0 auto;
+	align-self: center;
+	align-items: center;
+}
+.right{
+	width: 100%;
+	text-align: right;
+	left: 0px;
+	align-self: right;
+	align-items: right;
 }
 
-table{
-	width: 100%;
-	padding: 30px;
-	max-height: 60vh;
+
+.thead{
+	padding: 10px 0px;
+	padding: 10px 0px;
+	font-weight: normal;
+	background : #A7B2BA;
+}
+
+.tbody{
+	padding: 10px 0px;
+	background: #e4e7ea;
+	border-bottom: 1px #d3d8dc solid;
+}
+
+.scrollTable{
+	overflow: scroll;
+	height: 55vh;
+}
+
+tbody{
+	max-height: 50vh !important;
+	overflow: scroll;
 }
 
 #spectrum {color: #575757 !important;}
@@ -82,4 +123,103 @@ table{
     -moz-animation-iteration-count: infinite;
     -moz-animation-name: colours;
     -moz-animation-timing-function: ease;
+}
+
+.my-custom-stars .button .material-icons {
+  font-size: 30px;
+}
+
+.my-custom-stars .star-button.star-on .material-icons {
+  color: #0066CC;
+}
+
+.my-custom-stars .star-button.star-off .material-icons {
+  color: #99ccff;
+}
+
+
+.box-one.ng-hide-add {
+  -webkit-animation:0.75s hide;
+  animation:0.75s hide;
+}
+
+@keyframes hide {
+  0% {
+    opacity:1;
+    transform: scale(1);
+  }
+  30% {
+    opacity:0;
+    transform: scale(1.02);
+  }
+  70%{
+    opacity:0;
+    transform: scale(0);
+  }
+  100% {
+    opacity:0;
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    opacity:1;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.75);
+  }
+  70%{
+    opacity:0;
+    transform: scale(0);
+  }
+  100% {
+    opacity:0;
+    transform: scale(0);
+  }
+}
+
+
+.box-one.ng-hide-remove {
+  -webkit-animation:0.25s show;
+  animation:0.25s show;
+}
+
+@keyframes show {
+  0% {
+    opacity:0;
+    transform: scale(0.75);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:1;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity:0;
+    transform: scale(0.75);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:1;
+    transform: scale(1);
+  }
+}
+
+md-switch.md-default-theme .md-bar, md-switch .md-bar {
+    background-color: rgba(112,165,204,0.5);
+}
+
+md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
+    background-color: rgb(112,165,204);
 }

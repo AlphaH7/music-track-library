@@ -1,4 +1,4 @@
-var app = angular.module('track-lib',['ngMaterial','ui.router','ngResource']);
+var app = angular.module('track-lib',['ngMaterial','jkAngularRatingStars','ui.router','ngResource']);
 
 app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRouterProvider){
     $httpProvider.interceptors.push(function(){
@@ -19,6 +19,7 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
     .state('app',{
       url:'/app',
       templateUrl: 'modules/app.html',
+      controller: 'appCtrl'
       //abstract: 'true'
     })
     .state('app.dashboard',{

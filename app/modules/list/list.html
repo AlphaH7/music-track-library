@@ -1,43 +1,68 @@
-<table cellspacing="0" class="table" ng-show="arg === 'tracks'" >
-  <thead >
-    <tr md-row>
-      <th class="centre"><span>ID</span></th>
-      <th><span>title</span></th>
-      <th><span>Rating</span></th>
-    </tr>
-  </thead>
-  <tbody md-body style="max-height: 20vh" ng-repeat="track in tracks.results" >
-    <tr>
-      <td>{{track.id}}</td>
-      <td>{{track.title}}</td>
-      <td>{{track.rating}}</td>
-    </tr>
-  </tbody>
-</table>
 
-<table cellspacing="0" class="table" ng-if="arg === 'genres'" >
-  <thead >
-    <tr md-row>
-      <th class="centre"><span>ID</span></th>
-      <th><span>name</span></th>
-    </tr>
-  </thead>
-  <tbody md-body style="max-height: 20vh" ng-repeat="track in tracks.results" >
-    <tr>
-      <td>{{track.id}}</td>
-      <td>{{track.name}}</td>
-    </tr>
-  </tbody>
-</table>
+<div layout="row" layout-align="space-around center" ng-init="search = true">
 
+<md-card flex="70" class="table">
+<div>
+    <div layout="row" class="thead">
+      <div flex="35"> Title </div>
+      <div flex="65"> Rating </div>
+    </div>
+    <div class="scrollTable">
+      <div layout="column" class="box-one" style="height:inherit" ng-show="!tracks" layout-align="center center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+    <div layout="row" ng-show="tracks"  class="tbody box-one" ng-repeat="track in tracks">
+      <div flex="35">{{track.title}}</div>
+      <jk-rating-stars flex="65" max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
+    </div>
+    </div>
+  <div layout="row" layout-align="center center">
+    <md-menu-item >
+      <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Previous Page</span></md-button>
+    </md-menu-item>
+    <md-menu-item >
+      <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
+    </md-menu-item>
+  </div>
+</div>
+</md-card>
 
-<md-menu-item ng-if="arg" >
-  <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
-</md-menu-item>
+<div flex="30" layout="column" layout-align="center stretch" style="height:70vh">
 
-<md-menu-item ng-if="!arg" >
-  <md-button class="md-raised md-primary" ng-click="list('tracks')" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>list tracks</span></md-button>
-</md-menu-item>
-<md-menu-item ng-if="!arg" >
-  <md-button class="md-raised md-primary" ng-click="list('genres')" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>list genres</span></md-button>
-</md-menu-item>
+  <div>
+    <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
+    <h1 id="spectrum" class="header">Music Library</h1>
+  </div>
+
+  <div class="center box-one" ng-show="search" >
+  <md-button class="md-fab md-primary" aria-label="Search"  ng-click="search = !search" >
+    <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
+  </md-button>
+  </div>
+
+    <div  class="center box-one" ng-show="search" >
+    <md-button class="md-fab md-primary" aria-label="Add">
+      <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
+    </md-button>
+    </div>
+
+  <md-card class="features box-one" ng-show="!search" >
+    <span class="right">
+    <md-button ng-click="search = !search" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+    </span>
+    <div layout="row" layout-align="center center" ng-init="query = false">
+      <p flex="45" > Title </p>
+      <md-switch  flex="10" class="md-primary" name="special" ng-model="query"></md-switch>
+      <p flex="45" > ID </p>
+    </div>
+    <form layout="row" layout-align="center center" name="searchTrackForm" ng-submit="searchTrack(s)">
+    <md-input-container flex="70" required>
+      <label class="box-one" ng-show="query == false">Title</label>
+      <label class="box-one" ng-show="query == true">ID</label>
+      <input ng-model="s.id" required>
+    </md-input-container>
+      <md-button class="md-raised md-primary" ng-disabled="searchTrackForm.$invalid"  type="submit">Search</md-button>
+    </form>
+  </md-card>
+
+</div>

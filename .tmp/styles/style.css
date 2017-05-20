@@ -14,49 +14,96 @@ body {
   margin: 15px 0px;
 }
 
-/* line 16, ../../app/styles/style.scss */
+/* line 15, ../../app/styles/style.scss */
+md-input-container {
+  margin-bottom: 0px !important;
+}
+
+/* line 19, ../../app/styles/style.scss */
 md-card.main-card {
   height: 80vh;
-  width: 40vw;
+  width: 70vw;
   padding: 30px 20px;
   text-align: center;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 35px 3px #c2ddff;
 }
 
-/* line 28, ../../app/styles/style.scss */
+/* line 31, ../../app/styles/style.scss */
+md-card.table {
+  box-shadow: 0px 0px 3px 0px #969696;
+}
+
+/* line 37, ../../app/styles/style.scss */
+md-card.features {
+  width: 100%;
+}
+
+/* line 41, ../../app/styles/style.scss */
 md-menu-item {
   margin: 20px 30px;
 }
 
-/* line 31, ../../app/styles/style.scss */
+/* line 44, ../../app/styles/style.scss */
 .full-height {
   height: 100vh;
 }
 
-/* line 35, ../../app/styles/style.scss */
+/* line 48, ../../app/styles/style.scss */
 .height100 {
   height: 100%;
 }
 
-/* line 40, ../../app/styles/style.scss */
+/* line 53, ../../app/styles/style.scss */
 .center {
   text-align: center;
+  margin: 0 auto;
+  align-self: center;
+  align-items: center;
 }
 
-/* line 44, ../../app/styles/style.scss */
-table {
+/* line 59, ../../app/styles/style.scss */
+.right {
   width: 100%;
-  padding: 30px;
-  max-height: 60vh;
+  text-align: right;
+  left: 0px;
+  align-self: right;
+  align-items: right;
 }
 
-/* line 50, ../../app/styles/style.scss */
+/* line 68, ../../app/styles/style.scss */
+.thead {
+  padding: 10px 0px;
+  padding: 10px 0px;
+  font-weight: normal;
+  background: #A7B2BA;
+}
+
+/* line 75, ../../app/styles/style.scss */
+.tbody {
+  padding: 10px 0px;
+  background: #e4e7ea;
+  border-bottom: 1px #d3d8dc solid;
+}
+
+/* line 81, ../../app/styles/style.scss */
+.scrollTable {
+  overflow: scroll;
+  height: 55vh;
+}
+
+/* line 86, ../../app/styles/style.scss */
+tbody {
+  max-height: 50vh !important;
+  overflow: scroll;
+}
+
+/* line 91, ../../app/styles/style.scss */
 #spectrum {
   color: #575757 !important;
 }
-/* line 74, ../../app/styles/style.scss */
+/* line 115, ../../app/styles/style.scss */
 #spectrum {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 60s;
@@ -68,6 +115,73 @@ table {
   -moz-animation-iteration-count: infinite;
   -moz-animation-name: colours;
   -moz-animation-timing-function: ease;
+}
+
+/* line 128, ../../app/styles/style.scss */
+.my-custom-stars .button .material-icons {
+  font-size: 30px;
+}
+
+/* line 132, ../../app/styles/style.scss */
+.my-custom-stars .star-button.star-on .material-icons {
+  color: #0066CC;
+}
+
+/* line 136, ../../app/styles/style.scss */
+.my-custom-stars .star-button.star-off .material-icons {
+  color: #99ccff;
+}
+
+/* line 141, ../../app/styles/style.scss */
+.box-one.ng-hide-add {
+  animation: 0.75s hide;
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+/* line 184, ../../app/styles/style.scss */
+.box-one.ng-hide-remove {
+  animation: 0.25s show;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* line 219, ../../app/styles/style.scss */
+md-switch.md-default-theme .md-bar, md-switch .md-bar {
+  background-color: rgba(112, 165, 204, 0.5);
+}
+
+/* line 223, ../../app/styles/style.scss */
+md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
+  background-color: #70a5cc;
 }
 
 /*# sourceMappingURL=style.css.map */
