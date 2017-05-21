@@ -7,6 +7,8 @@ angular.module('track-lib').controller('genres', function($scope, genreService, 
         $scope.editBtn = false;
         $scope.b = a;
         console.log($scope.b)
+        $scope.addBtn = true;
+        $scope.search = true;
     };
 
     $scope.Allgenre = function(c) {

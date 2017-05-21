@@ -15,6 +15,8 @@ angular.module('track-lib').controller('tracks', function($scope, trackService, 
         $scope.editBtn = false;
         $scope.moreDetails = false;
         console.log($scope.moreDetails)
+        $scope.addBtn = true;
+        $scope.search = true;
         $scope.b = a;
         $scope.b.rating = null;
         $scope.b.genres=[]
