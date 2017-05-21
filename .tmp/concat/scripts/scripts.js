@@ -26,10 +26,15 @@ app.config(["$stateProvider", "$mdThemingProvider", "$httpProvider", "$urlRouter
       url:'/dashboard',
       templateUrl: 'modules/home/home.html',
     })
-    .state('app.list',{
-      url:'/list',
+    .state('app.tracks',{
+      url:'/tracks',
       templateUrl: 'modules/list/list.html',
-      controller: 'list',
+      controller: 'tracks',
+    })
+    .state('app.genres',{
+      url:'/genres',
+      templateUrl: 'modules/genres/genres.html',
+      controller: 'genres',
     });
     $urlRouterProvider.when('','app/dashboard');
 
@@ -42,7 +47,7 @@ app.config(["$stateProvider", "$mdThemingProvider", "$httpProvider", "$urlRouter
     '500': '#70a5cc',
     '600': '#96bdda',
     '700': '#a9c9e0',
-    '800': '#bbd4e7',
+    '800': '#31648b',
     '900': '#cee0ee',
     'A100': '#96bdda',
     'A200': '#83b1d3',
@@ -63,77 +68,210 @@ app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s
 
 }]);
 
-angular.module('track-lib').controller('list',["$scope", "trackService", "$resource", "env", "$http", "$mdToast", function($scope ,trackService , $resource , env , $http, $mdToast){
-  $scope.displayMode = "list";
-  $scope.getTracks = null;
-  $scope.readOnly = true;
-  $scope.clearResults = false;
+angular.module('track-lib').controller('tracks', ["$scope", "trackService", "trackParamsService", "$resource", "env", "$http", "$mdToast", function($scope, trackService, trackParamsService, $resource, env, $http, $mdToast) {
+    $scope.displayMode = "list";
+    $scope.getTracks = null;
+    $scope.readOnly = true;
+    $scope.clearResults = false;
 
-  $scope.addrating = function(rating){
-    $scope.s.rating = rating;
-  }
+    $scope.addrating = function(rating) {
+        $scope.s.rating = rating;
+    };
+    $scope.addTrackrating = function(rating) {
+        $scope.b.rating = rating;
+    };
 
-  $scope.Alltracks = function(c){
-    $scope.getTracks = trackService.get(function(){
-      $scope.tracks = $scope.getTracks.results;
-      console.log($scope.tracks);
-      $scope.clearResults = false;
-      $scope.addBtn = true;
-      $scope.search = true;
-    });
-  };
+    $scope.editTrack = function(a) {
+        $scope.editBtn = false;
+        $scope.b = a;
+        $scope.b.rating = null;
+        console.log($scope.b)
+    };
 
-  $scope.Alltracks();
+    $scope.Alltracks = function(c) {
+        $scope.tracks = null;
+        $scope.getTracks = trackService.get(function() {
+            $scope.tracks = $scope.getTracks.results;
+            console.log($scope.tracks);
+            $scope.clearResults = false;
+            $scope.addBtn = true;
+            $scope.editBtn = true;
+            $scope.search = true;
+        });
+        console.log($scope.getTracks);
+    };
 
-  $scope.nextPage = function (d) {
-      $scope.nextLink = $resource(d);
-      $scope.getTracks = $scope.nextLink.get(
-        function(){
-          $scope.tracks = $scope.getTracks.results;
-          console.log($scope.tracks);
-          $scope.clearResults = false;
-        }
-      );
-      console.log($scope.tracks)
-  };
+    $scope.Alltracks();
 
-  $scope.postTrack = function (d) {
-    console.log('input:', d)
-    x  =  new trackService;
-    angular.extend(x, d);
-    x.$save(function(response) {
-    console.log('response:', response)
-    $scope.tracks = [response];
-    $scope.clearResults = true;
-  });
-  };
-
-  $scope.searchTrack = function (d) {
-    if($scope.query == true){
-      x  =  new trackService;
-      angular.extend(x, d);
-      x.$get(function(response) {
-      console.log('response:', response);
-      if(response.$resolved){
-        $scope.tracks = [response];
-        $scope.clearResults = true;
-      }else if(!response.$resolved){
-        $mdToast.show(
-          $mdToast.simple()
-            .textContent('Something went wrong. Plz try again.')
-            .position('top right')
-            .hideDelay(3000)
+    $scope.movePage = function(d) {
+        $scope.nextLink = $resource(d);
+        $scope.getTracks = $scope.nextLink.get(
+            function() {
+                $scope.tracks = $scope.getTracks.results;
+                console.log($scope.tracks);
+                $scope.clearResults = false;
+            }
         );
-      }
-      });
-    }
-  };
+        console.log($scope.tracks)
+    };
+
+
+    $scope.postTrack = function(d) {
+        console.log('input:', d)
+        x = new trackService;
+        angular.extend(x, d);
+        x.$save(function(response) {
+            console.log('response:', response)
+            $scope.tracks = [response];
+            $scope.clearResults = true;
+        });
+    };
+
+    $scope.searchTrack = function(d) {
+        if ($scope.query == true) {
+            x = new trackService;
+            angular.extend(x, d);
+            x.$get(function(response) {
+                console.log('response:', response);
+                if (response.detail == "Not found.") {
+                    console.log('nf')
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent("Track not found.")
+                        .position('top right')
+                        .hideDelay(3000)
+                    );
+                } else if (response.$resolved) {
+                    $scope.tracks = [response];
+                    $scope.clearResults = true;
+                } else {
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent("Something went wrong. Plz check and try again.")
+                        .position('top right')
+                        .hideDelay(3000)
+                    );
+                };
+            });
+        } else if ($scope.query == false) {
+            x = new trackParamsService;
+            angular.extend(x, d);
+            x.id = "title=" + d.id;
+            x.$get(function(response) {
+                console.log('response:', response);
+                if (response.results.length == 0) {
+                    console.log('nf')
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent("Track not found.")
+                        .position('top right')
+                        .hideDelay(3000)
+                    );
+                } else if (response.$resolved) {
+                    $scope.tracks = response.results;
+                    $scope.clearResults = true;
+                };
+            });
+        }
+
+    };
+
+
+}]);
+
+angular.module('track-lib').controller('genres', ["$scope", "genreService", "$resource", "env", "$http", "$mdToast", function($scope, genreService, $resource, env, $http, $mdToast) {
+    $scope.displayMode = "list";
+    $scope.getGenre = null;
+    $scope.clearResults = false;
+
+    $scope.editGenre = function(a) {
+        $scope.editBtn = false;
+        $scope.b = a;
+        console.log($scope.b)
+    };
+
+    $scope.Allgenre = function(c) {
+        $scope.genres = null;
+        $scope.getGenre = genreService.get(function() {
+            $scope.genres = $scope.getGenre.results;
+            console.log($scope.genres);
+            $scope.clearResults = false;
+            $scope.addBtn = true;
+            $scope.editBtn = true;
+            $scope.search = true;
+        });
+        console.log($scope.getGenre);
+    };
+
+    $scope.Allgenre();
+
+    $scope.movePage = function(d) {
+        $scope.nextLink = $resource(d);
+        $scope.getGenre = $scope.nextLink.get(
+            function() {
+                $scope.genres = $scope.getGenre.results;
+                console.log($scope.genres);
+                $scope.clearResults = false;
+            }
+        );
+        console.log($scope.genres)
+    };
+
+
+    $scope.postGenre = function(d) {
+        console.log('input:', d)
+        x = new genreService;
+        angular.extend(x, d);
+        x.$save(function(response) {
+            console.log('response:', response)
+            $scope.genres = [response];
+            $scope.clearResults = true;
+            $scope.b = null;
+        });
+    };
+
+    $scope.searchGenre = function(d) {
+        x = new genreService;
+        angular.extend(x, d);
+        x.$get(function(response) {
+            console.log('response:', response);
+            if (response.detail == "Not found.") {
+                console.log('nf')
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent("Genre not found.")
+                    .position('top right')
+                    .hideDelay(3000)
+                );
+            } else if (response.$resolved) {
+                $scope.genres = [response];
+                $scope.clearResults = true;
+            } else {
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent("Something went wrong. Plz check and try again.")
+                    .position('top right')
+                    .hideDelay(3000)
+                );
+            };
+        });
+    };
 
 }]);
 
 angular.module('track-lib').factory('trackService', ['$resource','env', function ($resource,env) {
 
     return $resource(env + 'tracks/:id', {id: '@id'});
+}]);
+
+angular.module('track-lib').factory('trackParamsService', ['$resource','env', function ($resource,env) {
+
+    return $resource(env + 'tracks?:id', {id: '@id'});
+}]);
+
+angular.module('track-lib').factory('genreService', ['$resource','env', function ($resource,env) {
+
+    return $resource(env + 'genres/:id', {id: '@id'});
 }]);
 
 !function(){"use strict";angular.module("jkAngularRatingStars",["jkAngularRatingStars.templates"])}(),function(){"use strict";function RatingStarsController($scope,$attrs,$timeout){var that=this;void 0===that.readOnly&&(that.readOnly=!1),that.initStarsArray=function(){that.starsArray=that.getStarsArray(),that.validateStars()},that.getStarsArray=function(){for(var starsArray=[],index=0;index<that.maxRating;index++){var starItem={index:index,"class":"star-off"};starsArray.push(starItem)}return starsArray},that.setRating=function(rating){that.readOnly||(that.rating=rating,that.validateStars(that.rating),$timeout(function(){that.onRating({rating:that.rating}),$scope.$apply()}))},that.setMouseOverRating=function(rating){that.readOnly||that.validateStars(rating)},that.validateStars=function(rating){if(that.starsArray&&0!==that.starsArray.length)for(var index=0;index<that.starsArray.length;index++){var starItem=that.starsArray[index];rating-1>=index?starItem["class"]="star-on":starItem["class"]="star-off"}}}angular.module("jkAngularRatingStars").controller("RatingStarsController",["$scope","$attrs","$timeout",RatingStarsController])}(),function(){"use strict";function RatingStarsDirective(){function link(scope,element,attrs,ctrl){(!attrs.maxRating||parseInt(attrs.maxRating)<=0)&&(attrs.maxRating="5"),scope.$watch("ctrl.maxRating",function(oldVal,newVal){ctrl.initStarsArray()}),scope.$watch("ctrl.rating",function(oldVal,newVal){ctrl.validateStars(ctrl.rating)})}return{restrict:"E",replace:!0,templateUrl:"rating-stars-directive.html",scope:{},controller:"RatingStarsController",controllerAs:"ctrl",bindToController:{maxRating:"@?",rating:"=?",readOnly:"=?",onRating:"&"},link:link}}angular.module("jkAngularRatingStars").directive("jkRatingStars",[RatingStarsDirective])}(),function(){angular.module("jkAngularRatingStars.templates",[]).run(["$templateCache",function($templateCache){$templateCache.put("rating-stars-directive.html",'<div\n  class="jk-rating-stars-container"\n  layout="row" >\n\n  <a\n    class="button"\n    ng-click="ctrl.setRating(0)"\n    ng-if="!ctrl.readOnly" >\n \n  </a>\n\n  <a\n    class="button star-button"\n    ng-class="item.class"\n    ng-mouseover="ctrl.setMouseOverRating($index + 1)"\n    ng-mouseleave="ctrl.setMouseOverRating(ctrl.rating)"\n    ng-click="ctrl.setRating($index + 1)"\n    ng-repeat="item in ctrl.starsArray" >\n    <i class="material-icons">star</i>\n  </a>\n\n</div>\n')}])}();

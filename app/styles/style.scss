@@ -11,6 +11,13 @@ body {
     font-family: 'Lobster', cursive;
     margin: 15px 0px;
 }
+.home{
+	background-image: url('../images/music.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom;
+	height: 75vh
+}
 md-input-container {
     margin-bottom: 0px!important;
 }
@@ -39,9 +46,6 @@ md-menu-item {
 }
 .full-height {
     height: 100vh;
-}
-.height100 {
-    height: inherit;
 }
 .center {
     text-align: center;

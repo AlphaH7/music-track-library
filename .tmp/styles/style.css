@@ -16,11 +16,20 @@ body {
 }
 
 /* line 14, ../../app/styles/style.scss */
+.home {
+  background-image: url("../images/music.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  height: 75vh;
+}
+
+/* line 21, ../../app/styles/style.scss */
 md-input-container {
   margin-bottom: 0px !important;
 }
 
-/* line 17, ../../app/styles/style.scss */
+/* line 24, ../../app/styles/style.scss */
 md-card.main-card {
   height: 80vh;
   width: 80vw;
@@ -31,33 +40,28 @@ md-card.main-card {
   box-shadow: 0px 0px 35px 3px #c2ddff;
 }
 
-/* line 28, ../../app/styles/style.scss */
+/* line 35, ../../app/styles/style.scss */
 md-card.table {
   box-shadow: 0px 0px 3px 0px #969696;
 }
 
-/* line 33, ../../app/styles/style.scss */
+/* line 40, ../../app/styles/style.scss */
 md-card.features {
   width: 100%;
   padding: 10px;
 }
 
-/* line 37, ../../app/styles/style.scss */
+/* line 44, ../../app/styles/style.scss */
 md-menu-item {
   margin: 5px 10px;
 }
 
-/* line 40, ../../app/styles/style.scss */
+/* line 47, ../../app/styles/style.scss */
 .full-height {
   height: 100vh;
 }
 
-/* line 43, ../../app/styles/style.scss */
-.height100 {
-  height: inherit;
-}
-
-/* line 46, ../../app/styles/style.scss */
+/* line 50, ../../app/styles/style.scss */
 .center {
   text-align: center;
   margin: auto;
@@ -65,7 +69,7 @@ md-menu-item {
   align-items: center;
 }
 
-/* line 52, ../../app/styles/style.scss */
+/* line 56, ../../app/styles/style.scss */
 .right {
   width: 100%;
   text-align: right;
@@ -74,7 +78,7 @@ md-menu-item {
   align-items: right;
 }
 
-/* line 59, ../../app/styles/style.scss */
+/* line 63, ../../app/styles/style.scss */
 .thead {
   padding: 10px 0px;
   padding: 10px 0px;
@@ -82,26 +86,26 @@ md-menu-item {
   background: #A7B2BA;
 }
 
-/* line 65, ../../app/styles/style.scss */
+/* line 69, ../../app/styles/style.scss */
 .tbody {
   padding: 10px 0px;
   background: #e4e7ea;
   border-bottom: 1px #d3d8dc solid;
 }
 
-/* line 70, ../../app/styles/style.scss */
+/* line 74, ../../app/styles/style.scss */
 .scrollTable {
   overflow: scroll;
   height: 60vh;
 }
 
-/* line 74, ../../app/styles/style.scss */
+/* line 78, ../../app/styles/style.scss */
 tbody {
   max-height: 50vh !important;
   overflow: scroll;
 }
 
-/* line 78, ../../app/styles/style.scss */
+/* line 82, ../../app/styles/style.scss */
 md-toast.md-default-theme .md-toast-content,
 md-toast .md-toast-content {
   background-color: #fafafa !important;
@@ -109,11 +113,11 @@ md-toast .md-toast-content {
   box-shadow: 0px 0px 3px 0px white;
 }
 
-/* line 86, ../../app/styles/style.scss */
+/* line 90, ../../app/styles/style.scss */
 #spectrum {
   color: #575757 !important;
 }
-/* line 141, ../../app/styles/style.scss */
+/* line 145, ../../app/styles/style.scss */
 #spectrum {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 60s;
@@ -127,24 +131,24 @@ md-toast .md-toast-content {
   -moz-animation-timing-function: ease;
 }
 
-/* line 153, ../../app/styles/style.scss */
+/* line 157, ../../app/styles/style.scss */
 .my-custom-stars .button .material-icons {
   font-size: 30px;
 }
 
-/* line 156, ../../app/styles/style.scss */
+/* line 160, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-on .material-icons {
   color: #0066CC;
   text-shadow: 2px 2px #666666;
 }
 
-/* line 160, ../../app/styles/style.scss */
+/* line 164, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-off .material-icons {
   color: #99ccff;
   text-shadow: 2px 2px #666666;
 }
 
-/* line 164, ../../app/styles/style.scss */
+/* line 168, ../../app/styles/style.scss */
 .box-one.ng-hide-add {
   animation: 0.75s hide;
 }
@@ -167,7 +171,7 @@ md-toast .md-toast-content {
     transform: scale(0);
   }
 }
-/* line 203, ../../app/styles/style.scss */
+/* line 207, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
   animation: 0.25s show;
 }
@@ -186,16 +190,14 @@ md-toast .md-toast-content {
     transform: scale(1);
   }
 }
-/* line 235, ../../app/styles/style.scss */
+/* line 239, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar,
 md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 239, ../../app/styles/style.scss */
+/* line 243, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb,
 md-switch .md-thumb {
   background-color: #70a5cc;
 }
-
-/*# sourceMappingURL=style.css.map */
