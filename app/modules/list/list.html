@@ -29,17 +29,22 @@
                              {{track.id}}
                            </div>
                            <div flex="70">
-                             <md-chips class="custom-chips genre right" ng-model="track.genres" readonly="true"
-                                 md-removable="false">
-                              <md-chip-template>
-                                <span>
-                                  <strong>{{$chip.name}}</strong>
-                                </span>
-                              </md-chip-template>
-                              <button md-chip-remove class="md-primary vegetablechip">
-                                <md-icon md-svg-icon="md-close"></md-icon>
-                              </button>
-                            </md-chips>
+                             <div ng-show="track.genres.length != 0" >
+                               <md-chips class="custom-chips genre right" ng-model="track.genres" readonly="true"
+                                   md-removable="false">
+                                <md-chip-template>
+                                  <span>
+                                    <strong>{{$chip.name}}</strong>
+                                  </span>
+                                </md-chip-template>
+                                <button md-chip-remove class="md-primary vegetablechip">
+                                  <md-icon md-svg-icon="md-close"></md-icon>
+                                </button>
+                              </md-chips>
+                            </div>
+                            <div ng-show="track.genres.length ==  0" >
+                              No genres present
+                            </div>
                           </div>
                        </div>
                    </div>
