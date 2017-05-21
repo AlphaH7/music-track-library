@@ -1,7 +1,8 @@
 
 <div layout="row" layout-align="space-around center" ng-init="search = true">
 
-<md-card flex="70" class="table">
+<div flex="70"  layout="column" layout-align="center stretch">
+<md-card class="table">
 <div>
     <div layout="row" class="thead">
       <div flex="35"> Title </div>
@@ -13,23 +14,25 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
     <div layout="row" ng-show="tracks"  class="tbody box-one" ng-repeat="track in tracks">
-      <div flex="35">{{track.title}}</div>
-      <div flex="55" layout="row" layout-align="center center">
+      <div flex="100" ng-show="!track.id" layout="row" layout-align="center center" class="scrollTable"><i>No tracks for the query</i></div>
+      <div flex="35" ng-show="track.id" class="center">{{track.title}}</div>
+      <div flex="55" layout="row" layout-align="center center" ng-show="track.id" >
         <jk-rating-stars max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
       </div>
-      <md-button flex="10" ng-click="editTrack(track)" class="md-icon-button"><md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon></md-button>
+      <md-button  ng-show="track.id" flex="10" ng-click="editTrack(track)" class="md-icon-button"><md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon></md-button>
     </div>
     </div>
-  <div layout="row" layout-align="center center">
-    <md-menu-item >
-      <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Previous Page</span></md-button>
-    </md-menu-item>
-    <md-menu-item >
-      <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
-    </md-menu-item>
-  </div>
 </div>
 </md-card>
+<div layout="row" layout-align="center center">
+  <md-menu-item >
+    <md-button class="md-raised md-primary" ng-click="prevPage()" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
+  </md-menu-item>
+  <md-menu-item >
+    <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
+  </md-menu-item>
+</div>
+</div>
 
 <div flex="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
 
@@ -38,13 +41,13 @@
     <h1 id="spectrum" class="header">Music Library</h1>
   </div>
 
-  <div class="center box-one" ng-show="search && addBtn && editBtn" >
+  <div class="box-one" ng-show="search && addBtn && editBtn" >
   <md-button class="md-fab md-primary" aria-label="Search"  ng-click="search = !search" >
     <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
   </md-button>
   </div>
 
-    <div  class="center box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn" >
+    <div  class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn" >
     <md-button class="md-fab md-primary" aria-label="Add">
       <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
     </md-button>

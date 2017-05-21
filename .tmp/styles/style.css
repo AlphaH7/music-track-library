@@ -44,7 +44,7 @@ md-card.features {
 
 /* line 43, ../../app/styles/style.scss */
 md-menu-item {
-  margin: 20px 30px;
+  margin: 5px 10px;
 }
 
 /* line 46, ../../app/styles/style.scss */
@@ -54,13 +54,13 @@ md-menu-item {
 
 /* line 50, ../../app/styles/style.scss */
 .height100 {
-  height: 100%;
+  height: inherit;
 }
 
 /* line 55, ../../app/styles/style.scss */
 .center {
   text-align: center;
-  margin: 0 auto;
+  margin: auto;
   align-self: center;
   align-items: center;
 }
@@ -92,7 +92,7 @@ md-menu-item {
 /* line 84, ../../app/styles/style.scss */
 .scrollTable {
   overflow: scroll;
-  height: 55vh;
+  height: 60vh;
 }
 
 /* line 89, ../../app/styles/style.scss */

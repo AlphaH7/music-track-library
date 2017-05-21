@@ -41,20 +41,20 @@ md-card.features{
 }
 
 md-menu-item{
-	margin: 20px 30px;
+	margin:5px 10px;
 }
 .full-height{
 	height: 100vh;
 }
 
 .height100{
-	height: 100%;
+	height: inherit;
 }
 
 
 .center{
 	text-align: center;
-	margin: 0 auto;
+	margin: auto;
 	align-self: center;
 	align-items: center;
 }
@@ -83,7 +83,7 @@ md-menu-item{
 
 .scrollTable{
 	overflow: scroll;
-	height: 55vh;
+	height: 60vh;
 }
 
 tbody{
