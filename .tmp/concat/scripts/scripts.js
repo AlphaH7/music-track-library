@@ -1,6 +1,6 @@
 var app = angular.module('track-lib',['ngMaterial','jkAngularRatingStars','ui.router','ngResource']);
 
-app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRouterProvider){
+app.config(["$stateProvider", "$mdThemingProvider", "$httpProvider", "$urlRouterProvider", function($stateProvider, $mdThemingProvider, $httpProvider, $urlRouterProvider){
     $httpProvider.interceptors.push(function(){
       var stack = 0, loader = jQuery('.loader');
       return{
@@ -57,36 +57,54 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
   $mdThemingProvider.theme('default')
     .primaryPalette('track-lib');
 
-});
+}]);
 app.constant('env','http://104.197.128.152:8000/v1/');
-app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s,http,dialog,env,state,){
+app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s,http,dialog,env,state){
 
 }]);
 
-angular.module('track-lib').controller('list',function($scope ,trackService , $resource , env , $http){
+angular.module('track-lib').controller('list',["$scope", "trackService", "$resource", "env", "$http", "$mdToast", function($scope ,trackService , $resource , env , $http, $mdToast){
   $scope.displayMode = "list";
   $scope.getTracks = null;
   $scope.readOnly = true;
+  $scope.clearResults = false;
+
+  $scope.addrating = function(rating){
+    $scope.s.rating = rating;
+  }
 
   $scope.Alltracks = function(c){
     $scope.getTracks = trackService.get(function(){
       $scope.tracks = $scope.getTracks.results;
       console.log($scope.tracks);
+      $scope.clearResults = false;
+      $scope.addBtn = true;
+      $scope.search = true;
     });
-  }();
+  };
+
+  $scope.Alltracks();
 
   $scope.nextPage = function (d) {
       $scope.nextLink = $resource(d);
-      $scope.tracks = $scope.nextLink.get();
+      $scope.getTracks = $scope.nextLink.get(
+        function(){
+          $scope.tracks = $scope.getTracks.results;
+          console.log($scope.tracks);
+          $scope.clearResults = false;
+        }
+      );
       console.log($scope.tracks)
   };
 
   $scope.postTrack = function (d) {
+    console.log('input:', d)
     x  =  new trackService;
     angular.extend(x, d);
     x.$save(function(response) {
     console.log('response:', response)
     $scope.tracks = [response];
+    $scope.clearResults = true;
   });
   };
 
@@ -96,17 +114,35 @@ angular.module('track-lib').controller('list',function($scope ,trackService , $r
       angular.extend(x, d);
       x.$get(function(response) {
       console.log('response:', response);
-
-      $scope.tracks = [response];
+      if(response.$resolved){
+        $scope.tracks = [response];
+        $scope.clearResults = true;
+      }else if(!response.$resolved){
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('Something went wrong. Plz try again.')
+            .position('top right')
+            .hideDelay(3000)
+        );
+      }
       });
     }
   };
 
-});
+}]);
 
 angular.module('track-lib').factory('trackService', ['$resource','env', function ($resource,env) {
 
-    return $resource(env + 'tracks/:id', {id: '@id'},);
+    return $resource(env + 'tracks/:id', {id: '@id'});
 }]);
 
-!function(){"use strict";angular.module("jkAngularRatingStars",["jkAngularRatingStars.templates"])}(),function(){"use strict";function RatingStarsController($scope,$attrs,$timeout){var that=this;void 0===that.readOnly&&(that.readOnly=!1),that.initStarsArray=function(){that.starsArray=that.getStarsArray(),that.validateStars()},that.getStarsArray=function(){for(var starsArray=[],index=0;index<that.maxRating;index++){var starItem={index:index,"class":"star-off"};starsArray.push(starItem)}return starsArray},that.setRating=function(rating){that.readOnly||(that.rating=rating,that.validateStars(that.rating),$timeout(function(){that.onRating({rating:that.rating}),$scope.$apply()}))},that.setMouseOverRating=function(rating){that.readOnly||that.validateStars(rating)},that.validateStars=function(rating){if(that.starsArray&&0!==that.starsArray.length)for(var index=0;index<that.starsArray.length;index++){var starItem=that.starsArray[index];rating-1>=index?starItem["class"]="star-on":starItem["class"]="star-off"}}}angular.module("jkAngularRatingStars").controller("RatingStarsController",["$scope","$attrs","$timeout",RatingStarsController])}(),function(){"use strict";function RatingStarsDirective(){function link(scope,element,attrs,ctrl){(!attrs.maxRating||parseInt(attrs.maxRating)<=0)&&(attrs.maxRating="5"),scope.$watch("ctrl.maxRating",function(oldVal,newVal){ctrl.initStarsArray()}),scope.$watch("ctrl.rating",function(oldVal,newVal){ctrl.validateStars(ctrl.rating)})}return{restrict:"E",replace:!0,templateUrl:"rating-stars-directive.html",scope:{},controller:"RatingStarsController",controllerAs:"ctrl",bindToController:{maxRating:"@?",rating:"=?",readOnly:"=?",onRating:"&"},link:link}}angular.module("jkAngularRatingStars").directive("jkRatingStars",[RatingStarsDirective])}(),function(){angular.module("jkAngularRatingStars.templates",[]).run(["$templateCache",function($templateCache){$templateCache.put("rating-stars-directive.html",'<div\n  class="jk-rating-stars-container"\n  layout="row" >\n\n  <a\n    class="button"\n    ng-click="ctrl.setRating(0)"\n    ng-if="!ctrl.readOnly" >\n    <i class="material-icons">remove_circle_outline</i>\n  </a>\n\n  <a\n    class="button star-button"\n    ng-class="item.class"\n    ng-mouseover="ctrl.setMouseOverRating($index + 1)"\n    ng-mouseleave="ctrl.setMouseOverRating(ctrl.rating)"\n    ng-click="ctrl.setRating($index + 1)"\n    ng-repeat="item in ctrl.starsArray" >\n    <i class="material-icons">star</i>\n  </a>\n\n</div>\n')}])}();
+!function(){"use strict";angular.module("jkAngularRatingStars",["jkAngularRatingStars.templates"])}(),function(){"use strict";function RatingStarsController($scope,$attrs,$timeout){var that=this;void 0===that.readOnly&&(that.readOnly=!1),that.initStarsArray=function(){that.starsArray=that.getStarsArray(),that.validateStars()},that.getStarsArray=function(){for(var starsArray=[],index=0;index<that.maxRating;index++){var starItem={index:index,"class":"star-off"};starsArray.push(starItem)}return starsArray},that.setRating=function(rating){that.readOnly||(that.rating=rating,that.validateStars(that.rating),$timeout(function(){that.onRating({rating:that.rating}),$scope.$apply()}))},that.setMouseOverRating=function(rating){that.readOnly||that.validateStars(rating)},that.validateStars=function(rating){if(that.starsArray&&0!==that.starsArray.length)for(var index=0;index<that.starsArray.length;index++){var starItem=that.starsArray[index];rating-1>=index?starItem["class"]="star-on":starItem["class"]="star-off"}}}angular.module("jkAngularRatingStars").controller("RatingStarsController",["$scope","$attrs","$timeout",RatingStarsController])}(),function(){"use strict";function RatingStarsDirective(){function link(scope,element,attrs,ctrl){(!attrs.maxRating||parseInt(attrs.maxRating)<=0)&&(attrs.maxRating="5"),scope.$watch("ctrl.maxRating",function(oldVal,newVal){ctrl.initStarsArray()}),scope.$watch("ctrl.rating",function(oldVal,newVal){ctrl.validateStars(ctrl.rating)})}return{restrict:"E",replace:!0,templateUrl:"rating-stars-directive.html",scope:{},controller:"RatingStarsController",controllerAs:"ctrl",bindToController:{maxRating:"@?",rating:"=?",readOnly:"=?",onRating:"&"},link:link}}angular.module("jkAngularRatingStars").directive("jkRatingStars",[RatingStarsDirective])}(),function(){angular.module("jkAngularRatingStars.templates",[]).run(["$templateCache",function($templateCache){$templateCache.put("rating-stars-directive.html",'<div\n  class="jk-rating-stars-container"\n  layout="row" >\n\n  <a\n    class="button"\n    ng-click="ctrl.setRating(0)"\n    ng-if="!ctrl.readOnly" >\n \n  </a>\n\n  <a\n    class="button star-button"\n    ng-class="item.class"\n    ng-mouseover="ctrl.setMouseOverRating($index + 1)"\n    ng-mouseleave="ctrl.setMouseOverRating(ctrl.rating)"\n    ng-click="ctrl.setRating($index + 1)"\n    ng-repeat="item in ctrl.starsArray" >\n    <i class="material-icons">star</i>\n  </a>\n\n</div>\n')}])}();
+
+angular.module('track-lib').run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('views/app.html',
+    "<section ng-controller=\"appCtrl\" layout=\"row\" layout-align=\"start stretch\" class=\"full-height\"> <md-sidenav class=\"md-sidenav-left\" md-component-id=\"left\" md-is-locked-open=\"$mdMedia('gt-md')\" md-whiteframe=\"4\"> <md-toolbar layout=\"column\" layout-align=\"center center\" class=\"md-hue-1\"> <div layout=\"row\" layout-align=\"center center\"><img class=\"logo\" src=\"../images/logo.png\"><h1 class=\"md-toolbar-tools\">A-List</h1></div> </md-toolbar> <md-card class=\"profile-image-bg\"> <md-card-title layout=\"column\" layout-align=\"center center\"> <div><img class=\"profile-circle\" ng-src=\"{{profile.profile_pic}}\"></div> <md-card-title-text> <span class=\"white-text md-headline\">{{profile.username}}</span> </md-card-title-text> </md-card-title> </md-card> <md-content layout-padding> <md-menu-item> <md-button ng-click=\"toggleMenu()\" href=\"/#/app/dashboard\"> <md-icon md-font-icon=\"mdi mdi-account-circle mdi-24px\"></md-icon><span md-menu-align-target>My Profile</span></md-button> </md-menu-item> <md-menu-item> <md-button ng-click=\"toggleMenu()\" href=\"/#/app/payments\"> <md-icon md-font-icon=\"mdi mdi-cash-usd mdi-24px\"></md-icon><span md-menu-align-target>Payments</span></md-button> </md-menu-item> <md-menu-item> <md-button ng-click=\"toggleMenu()\" href=\"/#/app/change_password\"> <md-icon md-font-icon=\"mdi mdi-key-variant mdi-24px\"></md-icon><span md-menu-align-target>Change Password</span></md-button> </md-menu-item> <md-menu-item> <md-button ng-click=\"toggleMenu()\" href=\"/#/app/faq\"> <md-icon md-font-icon=\"mdi mdi-comment-question-outline mdi-24px\"></md-icon><span md-menu-align-target>FAQ</span></md-button> </md-menu-item> </md-content> <footer> <p>© 2017 A-List Chat. <br> All rights reserved.</p> </footer> </md-sidenav> <md-content layout=\"column\" layout-align=\"start stretch\" flex> <md-toolbar class=\"md-hue-1\"> <div class=\"md-toolbar-tools\"> <md-button hide-gt-md class=\"md-icon-button\" aria-label=\"side-nav\" ng-click=\"toggleMenu()\"> <md-icon md-font-icon=\"mdi mdi-menu mdi-24px\"></md-icon> </md-button> <h2 hide-gt-md flex md-truncate>A-List</h2> <span flex></span> <md-button href=\"/#\" ng-click=\"logout()\" aria-label=\"More\"> <md-icon md-font-icon=\"mdi mdi-logout mdi-24px\"></md-icon>logout </md-button> </div> </md-toolbar> <div ui-view flex class=\"view\"></div> </md-content> </section>"
+  );
+
+}]);

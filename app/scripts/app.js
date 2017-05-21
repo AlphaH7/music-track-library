@@ -59,6 +59,6 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
 
 });
 app.constant('env','http://104.197.128.152:8000/v1/');
-app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s,http,dialog,env,state,){
+app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s,http,dialog,env,state){
 
 }]);

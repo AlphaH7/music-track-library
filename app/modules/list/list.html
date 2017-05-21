@@ -5,7 +5,8 @@
 <div>
     <div layout="row" class="thead">
       <div flex="35"> Title </div>
-      <div flex="65"> Rating </div>
+      <div flex="55"> Rating </div>
+      <div flex="10"> </div>
     </div>
     <div class="scrollTable">
       <div layout="column" class="box-one" style="height:inherit" ng-show="!tracks" layout-align="center center">
@@ -13,34 +14,37 @@
       </div>
     <div layout="row" ng-show="tracks"  class="tbody box-one" ng-repeat="track in tracks">
       <div flex="35">{{track.title}}</div>
-      <jk-rating-stars flex="65" max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
+      <div flex="55" layout="row" layout-align="center center">
+        <jk-rating-stars max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
+      </div>
+      <md-button flex="10" ng-click="editTrack(track)" class="md-icon-button"><md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon></md-button>
     </div>
     </div>
   <div layout="row" layout-align="center center">
     <md-menu-item >
-      <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Previous Page</span></md-button>
+      <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Previous Page</span></md-button>
     </md-menu-item>
     <md-menu-item >
-      <md-button class="md-raised md-primary" ng-click="nextPage(tracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
+      <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" > <md-icon md-font-icon="mdi mdi-account-circle mdi-24px" ></md-icon><span>Next Page</span></md-button>
     </md-menu-item>
   </div>
 </div>
 </md-card>
 
-<div flex="30" layout="column" layout-align="center stretch" style="height:70vh">
+<div flex="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
 
   <div>
     <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
     <h1 id="spectrum" class="header">Music Library</h1>
   </div>
 
-  <div class="center box-one" ng-show="search" >
+  <div class="center box-one" ng-show="search && addBtn && editBtn" >
   <md-button class="md-fab md-primary" aria-label="Search"  ng-click="search = !search" >
     <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
   </md-button>
   </div>
 
-    <div  class="center box-one" ng-show="search" >
+    <div  class="center box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn" >
     <md-button class="md-fab md-primary" aria-label="Add">
       <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
     </md-button>
@@ -56,7 +60,7 @@
       <p flex="45" > ID </p>
     </div>
     <form layout="row" layout-align="center center" name="searchTrackForm" ng-submit="searchTrack(s)">
-    <md-input-container flex="70" ng-show="clearResults == false" class="box-one" required>
+    <md-input-container flex="70" ng-show="clearResults == false" class="box-one">
       <label class="box-one" ng-show="query == false">Title</label>
       <label class="box-one" ng-show="query == true">ID</label>
       <input ng-model="s.id" required>
@@ -65,5 +69,54 @@
       <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Clear Results</md-button>
     </form>
   </md-card>
+
+<md-card class="features box-one" ng-show="!addBtn">
+<span class="right">
+<md-button ng-click="addBtn = !addBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+</span>
+  <form layout="column"  name="addTrackForm" ng-submit="postTrack(s)" ng-show="clearResults != true" >
+      <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required>
+        <label class="box-one">Title</label>
+        <input ng-model="s.title" required>
+      </md-input-container>
+      <div style="width: inherit; overflow: scroll">
+        <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addrating(rating)" ng-model="s.rating"></jk-rating-stars>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-input-container flex="100" class="box-one" required>
+          <label class="box-one">genre</label>
+          <input ng-model="s.genre[0]" required>
+        </md-input-container>
+      </div>
+    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="addTrackForm.$invalid"  type="submit">Add</md-button>
+
+  </form>
+  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Load Track List</md-button>
+  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="clearResults = false">Add More tracks</md-button>
+</md-card>
+
+<md-card class="features box-one" ng-show="!editBtn"  ng-init="editBtn = true">
+<span class="right">
+<md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+</span>
+  <form layout="column"  name="editTrackForm" ng-submit="postTrack(b)" ng-show="clearResults != true" >
+      <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required>
+        <label class="box-one">Title</label>
+        <input ng-model="b.title" required>
+      </md-input-container>
+      <div style="width: inherit; overflow: scroll">
+        <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addTrackrating(rating)" ng-model="b.rating"></jk-rating-stars>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-input-container flex="100" class="box-one" required>
+          <label class="box-one">genre</label>
+          <input ng-model="b.genres[0]" required>
+        </md-input-container>
+      </div>
+    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="editTrackForm.$invalid"  type="submit">Update</md-button>
+
+  </form>
+  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Load Track List</md-button>
+</md-card>
 
 </div>
