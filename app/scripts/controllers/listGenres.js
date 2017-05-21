@@ -50,9 +50,9 @@ angular.module('track-lib').controller('genres', function($scope, genreService, 
     };
 
     $scope.searchGenre = function(d) {
-        x = new genreService;
-        angular.extend(x, d);
-        x.$get(function(response) {
+        y = new genreService;
+        angular.extend(y, d);
+        y.$get(function(response) {
             console.log('response:', response);
             if (response.detail == "Not found.") {
                 console.log('nf')

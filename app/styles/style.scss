@@ -166,75 +166,70 @@ md-toast .md-toast-content {
     text-shadow: 2px 2px #666666;
 }
 .box-one.ng-hide-add {
-    -webkit-animation: 0.75s hide;
-    animation: 0.75s hide;
+  -webkit-animation:0.75s hide;
+  animation:0.75s hide;
 }
+
 @keyframes hide {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    30% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-    70% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
+  0% {
+    opacity:1;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:0;
+    transform: scale(0.75);
+  }
 }
+
 @-webkit-keyframes hide {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    30% {
-        transform: scale(0.75);
-    }
-    70% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
+  0% {
+    opacity:1;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:0;
+    transform: scale(0.75);
+  }
 }
+
+
 .box-one.ng-hide-remove {
-    -webkit-animation: 0.25s show;
-    animation: 0.25s show;
+  -webkit-animation:0.75s show;
+  animation:0.75s show;
 }
+
 @keyframes show {
-    0% {
-        opacity: 0;
-        transform: scale(0.75);
-    }
-    80% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity:0;
+    transform: scale(0.75);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:1;
+    transform: scale(1);
+  }
 }
+
 @-webkit-keyframes show {
-    0% {
-        opacity: 0;
-        transform: scale(0.75);
-    }
-    80% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity:0;
+    transform: scale(0.75);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity:1;
+    transform: scale(1);
+  }
 }
 md-switch.md-default-theme .md-bar,
 md-switch .md-bar {
@@ -243,6 +238,28 @@ md-switch .md-bar {
 md-switch.md-default-theme .md-thumb,
 md-switch .md-thumb {
     background-color: rgb(112, 165, 204);
+}
+
+.nofocus:focus {
+    outline: none;
+}
+
+.md-chips md-chip {
+    cursor: default;
+    border-radius: 16px;
+    display: block;
+    height: 29px;
+    line-height: 24px;
+    margin: 3px 3px 0 0;
+    padding: 2px 7px;
+    float: right;
+		background: #B7D2E5;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: relative;
+}
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+	box-shadow: 0 0px rgba(0,0,0,0.0);
 }
 
 @media screen and (max-width:736px) {
@@ -271,20 +288,3 @@ md-switch .md-thumb {
 	    height: 78vh;
 	}
 }
-
-.fabSpeedDialdemoBasicUsage .text-capitalize {
-  text-transform: capitalize; }
-
-.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
-  background-color: #000 !important; }
-
-.fabSpeedDialdemoBasicUsage p.note {
-  font-size: 1.2rem; }
-
-.fabSpeedDialdemoBasicUsage .lock-size {
-  min-width: 300px;
-  min-height: 300px;
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto; }

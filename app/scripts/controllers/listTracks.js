@@ -1,5 +1,5 @@
 angular.module('track-lib').controller('tracks', function($scope, trackService, trackParamsService, $resource, env, $http, $mdToast) {
-    $scope.isOpen = false;
+    $scope.moreDetails = false;
     $scope.getTracks = null;
     $scope.readOnly = true;
     $scope.clearResults = false;
@@ -13,8 +13,11 @@ angular.module('track-lib').controller('tracks', function($scope, trackService, 
 
     $scope.editTrack = function(a) {
         $scope.editBtn = false;
+        $scope.moreDetails = false;
+        console.log($scope.moreDetails)
         $scope.b = a;
         $scope.b.rating = null;
+        $scope.b.genres=[]
         console.log($scope.b)
     };
 

@@ -159,21 +159,16 @@ md-toast .md-toast-content {
     transform: scale(1);
   }
   30% {
-    opacity: 0;
     transform: scale(1.02);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(0);
   }
   100% {
     opacity: 0;
-    transform: scale(0);
+    transform: scale(0.75);
   }
 }
-/* line 207, ../../app/styles/style.scss */
+/* line 202, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
-  animation: 0.25s show;
+  animation: 0.75s show;
 }
 
 @keyframes show {
@@ -181,8 +176,7 @@ md-toast .md-toast-content {
     opacity: 0;
     transform: scale(0.75);
   }
-  80% {
-    opacity: 0;
+  70% {
     transform: scale(1.02);
   }
   100% {
@@ -190,76 +184,80 @@ md-toast .md-toast-content {
     transform: scale(1);
   }
 }
-/* line 239, ../../app/styles/style.scss */
+/* line 234, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar,
 md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 243, ../../app/styles/style.scss */
+/* line 238, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb,
 md-switch .md-thumb {
   background-color: #70a5cc;
 }
 
+/* line 243, ../../app/styles/style.scss */
+.nofocus:focus {
+  outline: none;
+}
+
+/* line 247, ../../app/styles/style.scss */
+.md-chips md-chip {
+  cursor: default;
+  border-radius: 16px;
+  display: block;
+  height: 29px;
+  line-height: 24px;
+  margin: 3px 3px 0 0;
+  padding: 2px 7px;
+  float: right;
+  background: #B7D2E5;
+  box-sizing: border-box;
+  max-width: 100%;
+  position: relative;
+}
+
+/* line 261, ../../app/styles/style.scss */
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+  box-shadow: 0 0px transparent;
+}
+
 @media screen and (max-width: 736px) {
-  /* line 249, ../../app/styles/style.scss */
+  /* line 266, ../../app/styles/style.scss */
   md-card.main-card {
     height: 95vh;
     width: 95vw;
     padding: 0px;
   }
 
-  /* line 254, ../../app/styles/style.scss */
+  /* line 271, ../../app/styles/style.scss */
   .home {
     height: 95vh;
     border-radius: 10px;
   }
 
-  /* line 258, ../../app/styles/style.scss */
+  /* line 275, ../../app/styles/style.scss */
   .my-custom-stars .button .material-icons {
     font-size: 15px;
   }
 
-  /* line 261, ../../app/styles/style.scss */
+  /* line 278, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-on .material-icons {
     color: #0066CC;
     text-shadow: 2px 2px #666666;
   }
 
-  /* line 265, ../../app/styles/style.scss */
+  /* line 282, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-off .material-icons {
     color: #99ccff;
     text-shadow: 2px 2px #666666;
   }
 
-  /* line 269, ../../app/styles/style.scss */
+  /* line 286, ../../app/styles/style.scss */
   .scrollTable {
     overflow: scroll;
     height: 78vh;
   }
 }
-/* line 275, ../../app/styles/style.scss */
-.fabSpeedDialdemoBasicUsage .text-capitalize {
-  text-transform: capitalize;
-}
 
-/* line 278, ../../app/styles/style.scss */
-.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
-  background-color: #000 !important;
-}
-
-/* line 281, ../../app/styles/style.scss */
-.fabSpeedDialdemoBasicUsage p.note {
-  font-size: 1.2rem;
-}
-
-/* line 284, ../../app/styles/style.scss */
-.fabSpeedDialdemoBasicUsage .lock-size {
-  min-width: 300px;
-  min-height: 300px;
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/*# sourceMappingURL=style.css.map */
