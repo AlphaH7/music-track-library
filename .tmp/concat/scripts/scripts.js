@@ -64,12 +64,12 @@ app.config(["$stateProvider", "$mdThemingProvider", "$httpProvider", "$urlRouter
 
 }]);
 app.constant('env','http://104.197.128.152:8000/v1/');
-app.controller('appCtrl',['$scope','$http','$mdDialog','env','$state',function(s,http,dialog,env,state){
+app.controller('appCtrl',['$scope','$http','env','$state',function(s,http,env,state){
 
 }]);
 
 angular.module('track-lib').controller('tracks', ["$scope", "trackService", "trackParamsService", "$resource", "env", "$http", "$mdToast", function($scope, trackService, trackParamsService, $resource, env, $http, $mdToast) {
-    $scope.displayMode = "list";
+    $scope.isOpen = false;
     $scope.getTracks = null;
     $scope.readOnly = true;
     $scope.clearResults = false;
