@@ -1,10 +1,9 @@
-angular.module('track-lib').controller('list',function($scope ,trackService , $resource , env , $http, $mdToast){
+angular.module('track-lib').controller('list',function($scope,trackService,trackParamsService,$resource,env,$http,$mdToast){
   $scope.displayMode = "list";
   $scope.getTracks = null;
   $scope.readOnly = true;
   $scope.clearResults = false;
   $scope.currentPage = 1;
-  $scope.pages=[];
 
   $scope.addrating = function(rating){
     $scope.s.rating = rating;
@@ -17,7 +16,6 @@ angular.module('track-lib').controller('list',function($scope ,trackService , $r
     $scope.editBtn = false;
     $scope.b = a;
     $scope.b.rating = null;
-    $scope.b.genres = [];
     console.log($scope.b)
   };
 
@@ -35,36 +33,36 @@ angular.module('track-lib').controller('list',function($scope ,trackService , $r
 
   $scope.Alltracks();
 
-  $scope.nextPage = function (d) {
-      $scope.nextLink = $resource(d);
-      $scope.pages.push(d)
-      $scope.currentPage++ ;
-      $scope.getTracks = $scope.nextLink.get(
-        function(){
-          $scope.tracks = $scope.getTracks.results;
-          console.log($scope.tracks);
-          $scope.clearResults = false;
-        }
-      );
-      console.log($scope.tracks)
-      console.log($scope.pages)
-  };
+  $scope.nextPage = function () {
+    x  =  new trackParamsService;
+    $scope.next = $scope.currentPage + 1;
+    x.id = "page=" + $scope.next;
+    x.$get(function(response) {
+      $scope.tracks = response.results;
+      console.log($scope.tracks);
+      $scope.currentPage++;
+      if(response.next = null){
+            $scope.nextBtn = false;
+      }
+      console.log('response:', response);
+    })};
 
-  $scope.prevPage = function () {
-      $scope.prev = $scope.pages[$scope.pages.length - $scope.currentPage]
-      console.log($scope.currentPage)
-      $scope.currentPage-- ;
-      $scope.nextLink = $resource($scope.prev);
-      $scope.getTracks = $scope.nextLink.get(
-        function(){
-          $scope.tracks = $scope.getTracks.results;
+    $scope.prevPage = function () {
+      x  =  new trackParamsService;
+      $scope.prev = $scope.currentPage - 1;
+      x.id = "page=" + $scope.prev;
+      if ($scope.prev != 0){
+        x.$get(function(response) {
+          $scope.tracks = response.results;
           console.log($scope.tracks);
-          $scope.clearResults = false;
-        }
-      );
-      console.log($scope.tracks)
-      console.log($scope.prev)
-  };
+          $scope.currentPage--;
+          if($scope.nextBtn = false){
+                $scope.nextBtn = true;
+          }
+          console.log('response:', response);
+        })
+      }
+    };
 
   $scope.postTrack = function (d) {
     console.log('input:', d)
@@ -103,7 +101,27 @@ angular.module('track-lib').controller('list',function($scope ,trackService , $r
         );
       };
       });
-    }
+    } else if($scope.query == false){
+          x  =  new trackParamsService;
+          angular.extend(x, d);
+          x.id = "title=" + d.id;
+          x.$get(function(response) {
+          console.log('response:', response);
+          if(response.results.length == 0){
+            console.log('nf')
+            $mdToast.show(
+              $mdToast.simple()
+                .textContent("Track not found.")
+                .position('top right')
+                .hideDelay(3000)
+            );
+          }else  if(response.$resolved){
+            $scope.tracks = response.results;
+            $scope.clearResults = true;
+          };
+          });
+        }
+
   };
 
 

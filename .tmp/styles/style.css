@@ -95,17 +95,24 @@ md-menu-item {
   height: 60vh;
 }
 
-/* line 89, ../../app/styles/style.scss */
+/* line 90, ../../app/styles/style.scss */
 tbody {
   max-height: 50vh !important;
   overflow: scroll;
 }
 
-/* line 94, ../../app/styles/style.scss */
+/* line 95, ../../app/styles/style.scss */
+md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
+  background-color: #fafafa !important;
+  color: #212121 !important;
+  box-shadow: 0px 0px 3px 0px white;
+}
+
+/* line 103, ../../app/styles/style.scss */
 #spectrum {
   color: #575757 !important;
 }
-/* line 118, ../../app/styles/style.scss */
+/* line 127, ../../app/styles/style.scss */
 #spectrum {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 60s;
@@ -119,22 +126,22 @@ tbody {
   -moz-animation-timing-function: ease;
 }
 
-/* line 131, ../../app/styles/style.scss */
+/* line 140, ../../app/styles/style.scss */
 .my-custom-stars .button .material-icons {
   font-size: 30px;
 }
 
-/* line 135, ../../app/styles/style.scss */
+/* line 144, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-on .material-icons {
   color: #0066CC;
 }
 
-/* line 139, ../../app/styles/style.scss */
+/* line 148, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-off .material-icons {
   color: #99ccff;
 }
 
-/* line 144, ../../app/styles/style.scss */
+/* line 153, ../../app/styles/style.scss */
 .box-one.ng-hide-add {
   animation: 0.75s hide;
 }
@@ -157,7 +164,7 @@ tbody {
     transform: scale(0);
   }
 }
-/* line 187, ../../app/styles/style.scss */
+/* line 196, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
   animation: 0.25s show;
 }
@@ -176,12 +183,12 @@ tbody {
     transform: scale(1);
   }
 }
-/* line 222, ../../app/styles/style.scss */
+/* line 231, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar, md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 226, ../../app/styles/style.scss */
+/* line 235, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
   background-color: #70a5cc;
 }

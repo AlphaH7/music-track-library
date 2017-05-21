@@ -26,10 +26,10 @@
 </md-card>
 <div layout="row" layout-align="center center">
   <md-menu-item >
-    <md-button class="md-raised md-primary" ng-click="prevPage()" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
+    <md-button ng-disabled="currentPage == 1"class="md-raised md-primary" ng-click="prevPage()" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
   </md-menu-item>
   <md-menu-item >
-    <md-button class="md-raised md-primary" ng-click="nextPage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
+    <md-button ng-disabled="nextBtn == true"class="md-raised md-primary" ng-click="nextPage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
   </md-menu-item>
 </div>
 </div>
@@ -77,19 +77,22 @@
 <span class="right">
 <md-button ng-click="addBtn = !addBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
 </span>
-  <form layout="column"  name="addTrackForm" ng-submit="postTrack(s)" ng-show="clearResults != true" >
-      <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required>
+  <form layout="column"  name="addTrackForm" ng-submit="postTrack(s)" ng-init="s.genres = []" ng-show="clearResults != true" >
+      <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required layout-padding>
         <label class="box-one">Title</label>
         <input ng-model="s.title" required>
       </md-input-container>
       <div style="width: inherit; overflow: scroll">
         <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addrating(rating)" ng-model="s.rating"></jk-rating-stars>
       </div>
-      <div layout="row" layout-align="center center">
-        <md-input-container flex="100" class="box-one" required>
-          <label class="box-one">genre</label>
-          <input ng-model="s.genre[0]" required>
-        </md-input-container>
+      <div layout="column" layout-align="center stretch" layout-padding>
+        <md-chips
+            ng-model="s.genres"
+            md-removable="true"
+            placeholder="Enter a genre"
+            delete-button-label="Remove genre"
+            delete-hint="Press delete to remove genre"
+            secondary-placeholder="+Tag"></md-chips>
       </div>
     <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="addTrackForm.$invalid"  type="submit">Add</md-button>
 
@@ -111,10 +114,13 @@
         <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addTrackrating(rating)" ng-model="b.rating"></jk-rating-stars>
       </div>
       <div layout="row" layout-align="center center">
-        <md-input-container flex="100" class="box-one" required>
-          <label class="box-one">genre</label>
-          <input ng-model="b.genres[0]" required>
-        </md-input-container>
+        <md-chips
+            ng-model="b.genres"
+            md-removable="true"
+            placeholder="Enter a genre"
+            delete-button-label="Remove genre"
+            delete-hint="Press delete to remove genre"
+            secondary-placeholder="+Tag"></md-chips>
       </div>
     <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="editTrackForm.$invalid"  type="submit">Update</md-button>
 
