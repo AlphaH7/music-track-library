@@ -9,18 +9,18 @@ body {
   background-position: center;
 }
 
-/* line 11, ../../app/styles/style.scss */
+/* line 10, ../../app/styles/style.scss */
 .header {
   font-family: 'Lobster', cursive;
   margin: 15px 0px;
 }
 
-/* line 16, ../../app/styles/style.scss */
+/* line 14, ../../app/styles/style.scss */
 md-input-container {
   margin-bottom: 0px !important;
 }
 
-/* line 20, ../../app/styles/style.scss */
+/* line 17, ../../app/styles/style.scss */
 md-card.main-card {
   height: 80vh;
   width: 80vw;
@@ -31,33 +31,33 @@ md-card.main-card {
   box-shadow: 0px 0px 35px 3px #c2ddff;
 }
 
-/* line 32, ../../app/styles/style.scss */
+/* line 28, ../../app/styles/style.scss */
 md-card.table {
   box-shadow: 0px 0px 3px 0px #969696;
 }
 
-/* line 38, ../../app/styles/style.scss */
+/* line 33, ../../app/styles/style.scss */
 md-card.features {
   width: 100%;
   padding: 10px;
 }
 
-/* line 43, ../../app/styles/style.scss */
+/* line 37, ../../app/styles/style.scss */
 md-menu-item {
   margin: 5px 10px;
 }
 
-/* line 46, ../../app/styles/style.scss */
+/* line 40, ../../app/styles/style.scss */
 .full-height {
   height: 100vh;
 }
 
-/* line 50, ../../app/styles/style.scss */
+/* line 43, ../../app/styles/style.scss */
 .height100 {
   height: inherit;
 }
 
-/* line 55, ../../app/styles/style.scss */
+/* line 46, ../../app/styles/style.scss */
 .center {
   text-align: center;
   margin: auto;
@@ -65,7 +65,7 @@ md-menu-item {
   align-items: center;
 }
 
-/* line 61, ../../app/styles/style.scss */
+/* line 52, ../../app/styles/style.scss */
 .right {
   width: 100%;
   text-align: right;
@@ -74,7 +74,7 @@ md-menu-item {
   align-items: right;
 }
 
-/* line 71, ../../app/styles/style.scss */
+/* line 59, ../../app/styles/style.scss */
 .thead {
   padding: 10px 0px;
   padding: 10px 0px;
@@ -82,37 +82,38 @@ md-menu-item {
   background: #A7B2BA;
 }
 
-/* line 78, ../../app/styles/style.scss */
+/* line 65, ../../app/styles/style.scss */
 .tbody {
   padding: 10px 0px;
   background: #e4e7ea;
   border-bottom: 1px #d3d8dc solid;
 }
 
-/* line 84, ../../app/styles/style.scss */
+/* line 70, ../../app/styles/style.scss */
 .scrollTable {
   overflow: scroll;
   height: 60vh;
 }
 
-/* line 90, ../../app/styles/style.scss */
+/* line 74, ../../app/styles/style.scss */
 tbody {
   max-height: 50vh !important;
   overflow: scroll;
 }
 
-/* line 95, ../../app/styles/style.scss */
-md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
+/* line 78, ../../app/styles/style.scss */
+md-toast.md-default-theme .md-toast-content,
+md-toast .md-toast-content {
   background-color: #fafafa !important;
   color: #212121 !important;
   box-shadow: 0px 0px 3px 0px white;
 }
 
-/* line 103, ../../app/styles/style.scss */
+/* line 86, ../../app/styles/style.scss */
 #spectrum {
   color: #575757 !important;
 }
-/* line 127, ../../app/styles/style.scss */
+/* line 141, ../../app/styles/style.scss */
 #spectrum {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 60s;
@@ -126,24 +127,24 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
   -moz-animation-timing-function: ease;
 }
 
-/* line 140, ../../app/styles/style.scss */
+/* line 153, ../../app/styles/style.scss */
 .my-custom-stars .button .material-icons {
   font-size: 30px;
 }
 
-/* line 144, ../../app/styles/style.scss */
+/* line 156, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-on .material-icons {
   color: #0066CC;
   text-shadow: 2px 2px #666666;
 }
 
-/* line 149, ../../app/styles/style.scss */
+/* line 160, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-off .material-icons {
   color: #99ccff;
   text-shadow: 2px 2px #666666;
 }
 
-/* line 155, ../../app/styles/style.scss */
+/* line 164, ../../app/styles/style.scss */
 .box-one.ng-hide-add {
   animation: 0.75s hide;
 }
@@ -166,7 +167,7 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
     transform: scale(0);
   }
 }
-/* line 198, ../../app/styles/style.scss */
+/* line 203, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
   animation: 0.25s show;
 }
@@ -185,13 +186,15 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
     transform: scale(1);
   }
 }
-/* line 233, ../../app/styles/style.scss */
-md-switch.md-default-theme .md-bar, md-switch .md-bar {
+/* line 235, ../../app/styles/style.scss */
+md-switch.md-default-theme .md-bar,
+md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 237, ../../app/styles/style.scss */
-md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
+/* line 239, ../../app/styles/style.scss */
+md-switch.md-default-theme .md-thumb,
+md-switch .md-thumb {
   background-color: #70a5cc;
 }
 

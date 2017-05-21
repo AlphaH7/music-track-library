@@ -1,129 +1,143 @@
-body{
-	font-family: 'Comfortaa', cursive;
-	font-weight: 200;
-	background-image: url("../images/bg.jpg");
-	background-color: rgb(38,38,38);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
+body {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 200;
+    background-image: url("../images/bg.jpg");
+    background-color: rgb(38, 38, 38);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
-
-.header{
-	font-family: 'Lobster', cursive;
-	margin: 15px 0px;
+.header {
+    font-family: 'Lobster', cursive;
+    margin: 15px 0px;
 }
-
-md-input-container{
-	margin-bottom: 0px!important;
+md-input-container {
+    margin-bottom: 0px!important;
 }
-
-md-card.main-card{
-	height: 80vh;
-	width: 80vw;
-	padding: 30px 20px;
-	text-align: center;
-	border-radius: 10px;
-	background: rgba(255,255,255, 0.9);
-	-webkit-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
-	-moz-box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
-	box-shadow: 0px 0px 35px 3px rgba(194,221,255,1);
+md-card.main-card {
+    height: 80vh;
+    width: 80vw;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-box-shadow: 0px 0px 35px 3px rgba(194, 221, 255, 1);
+    -moz-box-shadow: 0px 0px 35px 3px rgba(194, 221, 255, 1);
+    box-shadow: 0px 0px 35px 3px rgba(194, 221, 255, 1);
 }
-
-md-card.table{
-	-webkit-box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
-	-moz-box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
-	box-shadow: 0px 0px 3px 0px rgba(150,150,150, 1);
+md-card.table {
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(150, 150, 150, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(150, 150, 150, 1);
+    box-shadow: 0px 0px 3px 0px rgba(150, 150, 150, 1);
 }
-
-md-card.features{
-	width: 100%;
-	padding: 10px;
+md-card.features {
+    width: 100%;
+    padding: 10px;
 }
-
-md-menu-item{
-	margin:5px 10px;
+md-menu-item {
+    margin: 5px 10px;
 }
-.full-height{
-	height: 100vh;
+.full-height {
+    height: 100vh;
 }
-
-.height100{
-	height: inherit;
+.height100 {
+    height: inherit;
 }
-
-
-.center{
-	text-align: center;
-	margin: auto;
-	align-self: center;
-	align-items: center;
+.center {
+    text-align: center;
+    margin: auto;
+    align-self: center;
+    align-items: center;
 }
-.right{
-	width: 100%;
-	text-align: right;
-	left: 0px;
-	align-self: right;
-	align-items: right;
+.right {
+    width: 100%;
+    text-align: right;
+    left: 0px;
+    align-self: right;
+    align-items: right;
 }
-
-
-
-.thead{
-	padding: 10px 0px;
-	padding: 10px 0px;
-	font-weight: normal;
-	background : #A7B2BA;
+.thead {
+    padding: 10px 0px;
+    padding: 10px 0px;
+    font-weight: normal;
+    background: #A7B2BA;
 }
-
-.tbody{
-	padding: 10px 0px;
-	background: #e4e7ea;
-	border-bottom: 1px #d3d8dc solid;
+.tbody {
+    padding: 10px 0px;
+    background: #e4e7ea;
+    border-bottom: 1px #d3d8dc solid;
 }
-
-.scrollTable{
-	overflow: scroll;
-	height: 60vh;
+.scrollTable {
+    overflow: scroll;
+    height: 60vh;
 }
-
-
-tbody{
-	max-height: 50vh !important;
-	overflow: scroll;
+tbody {
+    max-height: 50vh !important;
+    overflow: scroll;
 }
-
-md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
-    background-color: rgb(250,250,250) !important;
-    color: rgb(33,33,33)!important;
-		-webkit-box-shadow: 0px 0px 3px 0px rgba(255,255,255, 1);
-		-moz-box-shadow: 0px 0px 3px 0px rgba(255,255,255, 1);
-		box-shadow: 0px 0px 3px 0px rgba(255,255,255, 1);
+md-toast.md-default-theme .md-toast-content,
+md-toast .md-toast-content {
+    background-color: rgb(250, 250, 250) !important;
+    color: rgb(33, 33, 33)!important;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 1);
 }
-
-#spectrum {color: #575757 !important;}
+#spectrum {
+    color: #575757 !important;
+}
 @-webkit-keyframes colours {
-     0% {color:  #d7e7ea;}
-     15% {color: #8bc5d1;}
-     30% {color: #39f;}
-     45% {color: #8c8298;}
-     60% {color: #8bc5d1;}
-     75% {color: #39f;}
-     90% {color: #999999;}
-    100% {color: #d7e7ea;}
-
+    0% {
+        color: #d7e7ea;
+    }
+    15% {
+        color: #8bc5d1;
+    }
+    30% {
+        color: #39f;
+    }
+    45% {
+        color: #8c8298;
+    }
+    60% {
+        color: #8bc5d1;
+    }
+    75% {
+        color: #39f;
+    }
+    90% {
+        color: #999999;
+    }
+    100% {
+        color: #d7e7ea;
+    }
 }
 @-moz-keyframes colours {
-     0% {color:  #d7e7ea;}
-     15% {color: #8bc5d1;}
-     30% {color: #39f;}
-     45% {color: #8c8298;}
-     60% {color: #8bc5d1;}
-     75% {color: #39f;}
-     90% {color: #999999;}
-    100% {color: #d7e7ea;}
-
+    0% {
+        color: #d7e7ea;
+    }
+    15% {
+        color: #8bc5d1;
+    }
+    30% {
+        color: #39f;
+    }
+    45% {
+        color: #8c8298;
+    }
+    60% {
+        color: #8bc5d1;
+    }
+    75% {
+        color: #39f;
+    }
+    90% {
+        color: #999999;
+    }
+    100% {
+        color: #d7e7ea;
+    }
 }
-
 #spectrum {
     -webkit-animation-direction: normal;
     -webkit-animation-duration: 60s;
@@ -136,104 +150,93 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
     -moz-animation-name: colours;
     -moz-animation-timing-function: ease;
 }
-
 .my-custom-stars .button .material-icons {
-  font-size: 30px;
+    font-size: 30px;
 }
-
 .my-custom-stars .star-button.star-on .material-icons {
-  color: #0066CC;
-	text-shadow: 2px 2px #666666;
+    color: #0066CC;
+    text-shadow: 2px 2px #666666;
 }
-
 .my-custom-stars .star-button.star-off .material-icons {
-  color: #99ccff;
-	text-shadow: 2px 2px #666666;
+    color: #99ccff;
+    text-shadow: 2px 2px #666666;
 }
-
-
 .box-one.ng-hide-add {
-  -webkit-animation:0.75s hide;
-  animation:0.75s hide;
+    -webkit-animation: 0.75s hide;
+    animation: 0.75s hide;
 }
-
 @keyframes hide {
-  0% {
-    opacity:1;
-    transform: scale(1);
-  }
-  30% {
-    opacity:0;
-    transform: scale(1.02);
-  }
-  70%{
-    opacity:0;
-    transform: scale(0);
-  }
-  100% {
-    opacity:0;
-    transform: scale(0);
-  }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    30% {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    70% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
 }
-
 @-webkit-keyframes hide {
-  0% {
-    opacity:1;
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(0.75);
-  }
-  70%{
-    opacity:0;
-    transform: scale(0);
-  }
-  100% {
-    opacity:0;
-    transform: scale(0);
-  }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(0.75);
+    }
+    70% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
 }
-
-
 .box-one.ng-hide-remove {
-  -webkit-animation:0.25s show;
-  animation:0.25s show;
+    -webkit-animation: 0.25s show;
+    animation: 0.25s show;
 }
-
 @keyframes show {
-  0% {
-    opacity:0;
-    transform: scale(0.75);
-  }
-  80% {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity:1;
-    transform: scale(1);
-  }
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    80% {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
-
 @-webkit-keyframes show {
-  0% {
-    opacity:0;
-    transform: scale(0.75);
-  }
-  80% {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity:1;
-    transform: scale(1);
-  }
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    80% {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
-
-md-switch.md-default-theme .md-bar, md-switch .md-bar {
-    background-color: rgba(112,165,204,0.5);
+md-switch.md-default-theme .md-bar,
+md-switch .md-bar {
+    background-color: rgba(112, 165, 204, 0.5);
 }
-
-md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
-    background-color: rgb(112,165,204);
+md-switch.md-default-theme .md-thumb,
+md-switch .md-thumb {
+    background-color: rgb(112, 165, 204);
 }
