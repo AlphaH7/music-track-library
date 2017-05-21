@@ -3,7 +3,6 @@ angular.module('track-lib').controller('list',function($scope,trackService,track
   $scope.getTracks = null;
   $scope.readOnly = true;
   $scope.clearResults = false;
-  $scope.currentPage = 1;
 
   $scope.addrating = function(rating){
     $scope.s.rating = rating;
@@ -29,40 +28,23 @@ angular.module('track-lib').controller('list',function($scope,trackService,track
       $scope.editBtn = true;
       $scope.search = true;
     });
+    console.log($scope.getTracks);
   };
 
   $scope.Alltracks();
 
-  $scope.nextPage = function () {
-    x  =  new trackParamsService;
-    $scope.next = $scope.currentPage + 1;
-    x.id = "page=" + $scope.next;
-    x.$get(function(response) {
-      $scope.tracks = response.results;
-      console.log($scope.tracks);
-      $scope.currentPage++;
-      if(response.next = null){
-            $scope.nextBtn = false;
-      }
-      console.log('response:', response);
-    })};
-
-    $scope.prevPage = function () {
-      x  =  new trackParamsService;
-      $scope.prev = $scope.currentPage - 1;
-      x.id = "page=" + $scope.prev;
-      if ($scope.prev != 0){
-        x.$get(function(response) {
-          $scope.tracks = response.results;
+  $scope.movePage = function (d) {
+      $scope.nextLink = $resource(d);
+      $scope.getTracks = $scope.nextLink.get(
+        function(){
+          $scope.tracks = $scope.getTracks.results;
           console.log($scope.tracks);
-          $scope.currentPage--;
-          if($scope.nextBtn = false){
-                $scope.nextBtn = true;
-          }
-          console.log('response:', response);
-        })
-      }
-    };
+          $scope.clearResults = false;
+        }
+      );
+      console.log($scope.tracks)
+  };
+
 
   $scope.postTrack = function (d) {
     console.log('input:', d)

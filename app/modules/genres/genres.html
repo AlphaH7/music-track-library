@@ -26,10 +26,10 @@
 </md-card>
 <div layout="row" layout-align="center center">
   <md-menu-item >
-    <md-button ng-disabled="getTracks.previous == null"class="md-raised md-primary" ng-click="movePage(getTracks.previous)" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
+    <md-button ng-disabled="currentPage == 1"class="md-raised md-primary" ng-click="prevPage()" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
   </md-menu-item>
   <md-menu-item >
-    <md-button ng-disabled="getTracks.next == null "class="md-raised md-primary" ng-click="movePage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
+    <md-button ng-disabled="nextBtn == true"class="md-raised md-primary" ng-click="nextPage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
   </md-menu-item>
 </div>
 </div>

@@ -30,6 +30,11 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
       url:'/list',
       templateUrl: 'modules/list/list.html',
       controller: 'list',
+    })
+    .state('app.genres',{
+      url:'/genres',
+      templateUrl: 'modules/genres/genres.html',
+      controller: 'list',
     });
     $urlRouterProvider.when('','app/dashboard');
 
