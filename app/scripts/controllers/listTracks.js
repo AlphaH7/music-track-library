@@ -1,4 +1,4 @@
-angular.module('track-lib').controller('list',function($scope,trackService,trackParamsService,$resource,env,$http,$mdToast){
+angular.module('track-lib').controller('tracks',function($scope,trackService,trackParamsService,$resource,env,$http,$mdToast){
   $scope.displayMode = "list";
   $scope.getTracks = null;
   $scope.readOnly = true;

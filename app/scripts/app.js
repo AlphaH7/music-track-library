@@ -26,15 +26,15 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
       url:'/dashboard',
       templateUrl: 'modules/home/home.html',
     })
-    .state('app.list',{
-      url:'/list',
+    .state('app.tracks',{
+      url:'/tracks',
       templateUrl: 'modules/list/list.html',
-      controller: 'list',
+      controller: 'tracks',
     })
     .state('app.genres',{
       url:'/genres',
       templateUrl: 'modules/genres/genres.html',
-      controller: 'list',
+      controller: 'genres',
     });
     $urlRouterProvider.when('','app/dashboard');
 
@@ -47,7 +47,7 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
     '500': '#70a5cc',
     '600': '#96bdda',
     '700': '#a9c9e0',
-    '800': '#bbd4e7',
+    '800': '#31648b',
     '900': '#cee0ee',
     'A100': '#96bdda',
     'A200': '#83b1d3',

@@ -134,14 +134,16 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
 /* line 144, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-on .material-icons {
   color: #0066CC;
+  text-shadow: 2px 2px #666666;
 }
 
-/* line 148, ../../app/styles/style.scss */
+/* line 149, ../../app/styles/style.scss */
 .my-custom-stars .star-button.star-off .material-icons {
   color: #99ccff;
+  text-shadow: 2px 2px #666666;
 }
 
-/* line 153, ../../app/styles/style.scss */
+/* line 155, ../../app/styles/style.scss */
 .box-one.ng-hide-add {
   animation: 0.75s hide;
 }
@@ -164,7 +166,7 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
     transform: scale(0);
   }
 }
-/* line 196, ../../app/styles/style.scss */
+/* line 198, ../../app/styles/style.scss */
 .box-one.ng-hide-remove {
   animation: 0.25s show;
 }
@@ -183,12 +185,12 @@ md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
     transform: scale(1);
   }
 }
-/* line 231, ../../app/styles/style.scss */
+/* line 233, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar, md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 235, ../../app/styles/style.scss */
+/* line 237, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
   background-color: #70a5cc;
 }

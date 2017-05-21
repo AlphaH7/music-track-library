@@ -42,13 +42,13 @@
   </div>
 
   <div class="box-one" ng-show="search && addBtn && editBtn" >
-  <md-button class="md-fab md-primary" aria-label="Search"  ng-click="search = !search" >
+  <md-button class="md-fab md-primary md-hue-2" aria-label="Search"  ng-click="search = !search" >
     <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
   </md-button>
   </div>
 
     <div  class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn" >
-    <md-button class="md-fab md-primary" aria-label="Add">
+    <md-button class="md-fab md-primary md-hue-2" aria-label="Add">
       <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
     </md-button>
     </div>
@@ -57,6 +57,9 @@
     <span class="right">
     <md-button ng-click="search = !search" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
     </span>
+    <div layout="row" layout-align="center center" ng-init="query = false">
+      <h4>Search Tracks</h4>
+    </div>
     <div layout="row" layout-align="center center" ng-init="query = false">
       <p flex="45" > Title </p>
       <md-switch  flex="10" class="md-primary" name="special" ng-model="query"></md-switch>
@@ -105,6 +108,9 @@
 <span class="right">
 <md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
 </span>
+<div layout="row" layout-align="center center" ng-init="query = false">
+  <h4>Edit Tracks</h4>
+</div>
   <form layout="column"  name="editTrackForm" ng-submit="postTrack(b)" ng-show="clearResults != true" >
       <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required>
         <label class="box-one">Title</label>

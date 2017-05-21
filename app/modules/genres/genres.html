@@ -5,31 +5,29 @@
 <md-card class="table">
 <div>
     <div layout="row" class="thead">
-      <div flex="35"> Title </div>
-      <div flex="55"> Rating </div>
-      <div flex="10"> </div>
+      <div flex="20"> ID </div>
+      <div flex="60"> Name </div>
+      <div flex="20"> </div>
     </div>
     <div class="scrollTable">
-      <div layout="column" class="box-one" style="height:inherit" ng-show="!tracks" layout-align="center center">
+      <div layout="column" class="box-one" style="height:inherit" ng-show="!genres" layout-align="center center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
-    <div layout="row" ng-show="tracks"  class="tbody box-one" ng-repeat="track in tracks">
-      <div flex="100" ng-show="!track.id" layout="row" layout-align="center center" class="scrollTable"><i>No tracks for the query</i></div>
-      <div flex="35" ng-show="track.id" class="center">{{track.title}}</div>
-      <div flex="55" layout="row" layout-align="center center" ng-show="track.id" >
-        <jk-rating-stars max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
-      </div>
-      <md-button  ng-show="track.id" flex="10" ng-click="editTrack(track)" class="md-icon-button"><md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon></md-button>
+    <div layout="row" ng-show="genres"  class="tbody box-one" ng-repeat="genre in genres">
+      <div flex="100" ng-show="!genre.id" layout="row" layout-align="center center" class="scrollTable"><i>No genres for the query</i></div>
+      <div flex="20" ng-show="genre.id" class="center">{{genre.id}}</div>
+      <div flex="60" layout="row" layout-align="center center" ng-show="genre.id" >{{genre.name}}</div>
+      <md-button ng-show="genre.id" flex="20" ng-click="editGenre(genre)" class="md-icon-button"><md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon></md-button>
     </div>
     </div>
 </div>
 </md-card>
 <div layout="row" layout-align="center center">
   <md-menu-item >
-    <md-button ng-disabled="currentPage == 1"class="md-raised md-primary" ng-click="prevPage()" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
+    <md-button ng-disabled="getGenre.previous == null"class="md-raised md-primary" ng-click="movePage(getGenre.previous)" > <md-icon md-font-icon="mdi mdi-arrow-left mdi-24px" ></md-icon><span>Prev Page</span></md-button>
   </md-menu-item>
   <md-menu-item >
-    <md-button ng-disabled="nextBtn == true"class="md-raised md-primary" ng-click="nextPage(getTracks.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
+    <md-button ng-disabled="getGenre.next == null "class="md-raised md-primary" ng-click="movePage(getGenre.next)" ><span>Next Page</span> <md-icon md-font-icon="mdi mdi-arrow-right mdi-24px" ></md-icon></md-button>
   </md-menu-item>
 </div>
 </div>
@@ -58,18 +56,15 @@
     <md-button ng-click="search = !search" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
     </span>
     <div layout="row" layout-align="center center" ng-init="query = false">
-      <p flex="45" > Title </p>
-      <md-switch  flex="10" class="md-primary" name="special" ng-model="query"></md-switch>
-      <p flex="45" > ID </p>
+      <h4>Search by ID</h4>
     </div>
-    <form layout="row" layout-align="center center" name="searchTrackForm" ng-submit="searchTrack(s)">
+    <form layout="row" layout-align="center center" name="searchGenreForm" ng-submit="searchGenre(s)">
     <md-input-container flex="70" ng-show="clearResults == false" class="box-one">
-      <label class="box-one" ng-show="query == false">Title</label>
-      <label class="box-one" ng-show="query == true">ID</label>
+      <label class="box-one">Title</label>
       <input ng-model="s.id" required>
     </md-input-container>
-      <md-button class="md-raised md-primary box-one" ng-show="clearResults == false" ng-disabled="searchTrackForm.$invalid"  type="submit">Search</md-button>
-      <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Clear Results</md-button>
+      <md-button class="md-raised md-primary box-one" ng-show="clearResults == false" ng-disabled="searchGenreForm.$invalid"  type="submit">Search</md-button>
+      <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Allgenre()">Clear Results</md-button>
     </form>
   </md-card>
 
@@ -77,55 +72,36 @@
 <span class="right">
 <md-button ng-click="addBtn = !addBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
 </span>
-  <form layout="column"  name="addTrackForm" ng-submit="postTrack(s)" ng-init="s.genres = []" ng-show="clearResults != true" >
+  <form layout="column"  name="addGenreForm" ng-submit="postGenre(s)" ng-show="clearResults != true" >
+    <div layout="row" layout-align="center center" ng-init="query = false">
+      <h4>Add Genre</h4>
+    </div>
       <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required layout-padding>
-        <label class="box-one">Title</label>
-        <input ng-model="s.title" required>
+        <label class="box-one">Name</label>
+        <input ng-model="s.name" required>
       </md-input-container>
-      <div style="width: inherit; overflow: scroll">
-        <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addrating(rating)" ng-model="s.rating"></jk-rating-stars>
-      </div>
-      <div layout="column" layout-align="center stretch" layout-padding>
-        <md-chips
-            ng-model="s.genres"
-            md-removable="true"
-            placeholder="Enter a genre"
-            delete-button-label="Remove genre"
-            delete-hint="Press delete to remove genre"
-            secondary-placeholder="+Tag"></md-chips>
-      </div>
-    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="addTrackForm.$invalid"  type="submit">Add</md-button>
+    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="addGenreForm.$invalid"  type="submit">Add</md-button>
 
   </form>
-  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Load Track List</md-button>
-  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="clearResults = false">Add More tracks</md-button>
+  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Allgenre()">Load Genre List</md-button>
 </md-card>
 
 <md-card class="features box-one" ng-show="!editBtn"  ng-init="editBtn = true">
 <span class="right">
 <md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
 </span>
-  <form layout="column"  name="editTrackForm" ng-submit="postTrack(b)" ng-show="clearResults != true" >
+  <form layout="column"  name="editGenreForm" ng-submit="postGenre(b)" ng-show="clearResults != true" >
+    <div layout="row" layout-align="center center" ng-init="query = false">
+      <h4>Edit Genre</h4>
+    </div>
       <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required>
-        <label class="box-one">Title</label>
-        <input ng-model="b.title" required>
+        <label class="box-one">Name</label>
+        <input ng-model="b.name" required>
       </md-input-container>
-      <div style="width: inherit; overflow: scroll">
-        <jk-rating-stars max-rating="10"  class="center my-custom-stars" on-rating="addTrackrating(rating)" ng-model="b.rating"></jk-rating-stars>
-      </div>
-      <div layout="row" layout-align="center center">
-        <md-chips
-            ng-model="b.genres"
-            md-removable="true"
-            placeholder="Enter a genre"
-            delete-button-label="Remove genre"
-            delete-hint="Press delete to remove genre"
-            secondary-placeholder="+Tag"></md-chips>
-      </div>
-    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="editTrackForm.$invalid"  type="submit">Update</md-button>
+    <md-button class="md-raised md-primary box-one" ng-show="clearResults != true" ng-disabled="editGenreForm.$invalid"  type="submit">Update</md-button>
 
   </form>
-  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Load Track List</md-button>
+  <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Allgenre()">Load Genre List</md-button>
 </md-card>
 
 </div>
