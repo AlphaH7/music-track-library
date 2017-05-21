@@ -1,5 +1,5 @@
 angular.module('track-lib').controller('tracks', function($scope, trackService, trackParamsService, $resource, env, $http, $mdToast) {
-    $scope.displayMode = "list";
+    $scope.isOpen = false;
     $scope.getTracks = null;
     $scope.readOnly = true;
     $scope.clearResults = false;

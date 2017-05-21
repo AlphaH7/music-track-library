@@ -1,6 +1,6 @@
 <div layout="row" layout-align="space-around center" ng-init="search = true">
 
-    <div flex="70" layout="column" layout-align="center stretch">
+    <div flex-gt-sm="70"  flex-xs="100" flex-sm="100" layout="column" layout-align="center stretch">
         <md-card class="table">
             <div>
                 <div layout="row" class="thead">
@@ -40,11 +40,19 @@
         </div>
     </div>
 
-    <div flex="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
+    <div hide-xs hide-sm flex-gt-sm="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
 
         <div>
             <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
             <h1 id="spectrum" class="header">Music Library</h1>
+        </div>
+        <div class="box-one" ng-show="search && addBtn && editBtn">
+          <md-button class="md-raised md-primary md-hue-2" href="/#/app/genres"><span>Browse genres</span>
+          </md-button>
+        </div>
+        <div class="box-one" ng-show="search && addBtn && editBtn">
+          <md-button class="md-raised md-primary md-hue-2" href="/#/app/dashboard"><span>Back Home</span>
+          </md-button>
         </div>
 
         <div class="box-one" ng-show="search && addBtn && editBtn">
@@ -106,8 +114,8 @@
 
         <md-card class="features box-one" ng-show="!editBtn" ng-init="editBtn = true">
             <span class="right">
-<md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
-</span>
+            <md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+            </span>
             <div layout="row" layout-align="center center" ng-init="query = false">
                 <h4>Edit Tracks</h4>
             </div>

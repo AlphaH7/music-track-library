@@ -1,3 +1,47 @@
+
+<section layout="column" layout-align-gt-xs="start stretch" layout-align-xs="start stretch" class="full-height">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" hide-gt-sm>
+
+      <md-content layout-padding data-ng-controller="tracks">
+        <div flex="100" layout="column" layout-align="center center" data-ng-controller="genres" style="height:90vh; text-align:center" ng-init="addBtn = true">
+
+            <div>
+                <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
+                <h1 id="spectrum" class="header">Music Library</h1>
+            </div>
+
+            <div class="box-one" ng-show="search && addBtn && editBtn">
+                <md-button class="md-fab md-primary md-hue-2" aria-label="Search" ng-click="search = !search">
+                    <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
+                </md-button>
+            </div>
+
+            <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn">
+                <md-button class="md-fab md-primary md-hue-2" aria-label="Add">
+                    <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
+                </md-button>
+            </div>
+        </div>
+      </md-content>
+
+    </md-sidenav>
+
+
+      <md-toolbar class="md-hue-1" hide-gt-sm>
+            <div class="md-toolbar-tools">
+              <md-button hide-gt-md class="md-icon-button" aria-label="side-nav" ng-click="toggleMenu()">
+                <md-icon md-font-icon="mdi mdi-menu mdi-24px"></md-icon>
+              </md-button>
+
+              <h2 hide-gt-md flex>A-List Chat</h2>
+              <span flex hide-xs></span>
+              <md-button ng-click="confirmLogout()" aria-label="logout">
+                <md-icon md-font-icon="mdi mdi-logout mdi-24px"></md-icon>logout
+              </md-button>
+            </div>
+      </md-toolbar>
+
+
 <div layout="row" layout-align="space-around center" ng-init="search = true">
 
     <div flex="70" layout="column" layout-align="center stretch">
@@ -44,16 +88,23 @@
             <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
             <h1 id="spectrum" class="header">Music Library</h1>
         </div>
-
+        <div class="box-one" ng-show="search && addBtn && editBtn">
+          <md-button class="md-raised md-primary md-hue-2" href="/#/app/tracks"><span>Browse tracks</span>
+          </md-button>
+        </div>
+        <div class="box-one" ng-show="search && addBtn && editBtn">
+          <md-button class="md-raised md-primary md-hue-2" href="/#/app/dashboard"><span>Back Home</span>
+          </md-button>
+        </div>
         <div class="box-one" ng-show="search && addBtn && editBtn">
             <md-button class="md-fab md-primary" aria-label="Search" ng-click="search = !search">
-                <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
+                <md-icon md-font-icon="mdi mdi-magnify md-primary md-hue-2 mdi-24px"></md-icon>
             </md-button>
         </div>
 
         <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn">
             <md-button class="md-fab md-primary" aria-label="Add">
-                <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
+                <md-icon md-font-icon="mdi mdi-library-plus md-primary md-hue-2 mdi-24px"></md-icon>
             </md-button>
         </div>
 
@@ -112,3 +163,5 @@
         </md-card>
 
     </div>
+
+  </section>

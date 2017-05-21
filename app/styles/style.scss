@@ -244,3 +244,47 @@ md-switch.md-default-theme .md-thumb,
 md-switch .md-thumb {
     background-color: rgb(112, 165, 204);
 }
+
+@media screen and (max-width:736px) {
+	md-card.main-card {
+	    height: 95vh;
+	    width: 95vw;
+			padding: 0px;
+	}
+	.home{
+		height: 95vh;
+		border-radius: 10px;
+	}
+	.my-custom-stars .button .material-icons {
+	    font-size: 15px;
+	}
+	.my-custom-stars .star-button.star-on .material-icons {
+	    color: #0066CC;
+	    text-shadow: 2px 2px #666666;
+	}
+	.my-custom-stars .star-button.star-off .material-icons {
+	    color: #99ccff;
+	    text-shadow: 2px 2px #666666;
+	}
+	.scrollTable {
+	    overflow: scroll;
+	    height: 78vh;
+	}
+}
+
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
