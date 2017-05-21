@@ -217,6 +217,9 @@ md-toast .md-toast-content {
     transform: scale(1);
   }
 }
+.moreDetails{
+	background: #92a8b7;
+}
 
 @-webkit-keyframes show {
   0% {
@@ -252,7 +255,7 @@ md-switch .md-thumb {
     line-height: 24px;
     margin: 3px 3px 0 0;
     padding: 2px 7px;
-    float: right;
+    float: right ;
 		background: #B7D2E5;
     box-sizing: border-box;
     max-width: 100%;

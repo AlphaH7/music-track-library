@@ -184,24 +184,28 @@ md-toast .md-toast-content {
     transform: scale(1);
   }
 }
-/* line 234, ../../app/styles/style.scss */
+/* line 220, ../../app/styles/style.scss */
+.moreDetails {
+  background: #92a8b7;
+}
+/* line 237, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-bar,
 md-switch .md-bar {
   background-color: rgba(112, 165, 204, 0.5);
 }
 
-/* line 238, ../../app/styles/style.scss */
+/* line 241, ../../app/styles/style.scss */
 md-switch.md-default-theme .md-thumb,
 md-switch .md-thumb {
   background-color: #70a5cc;
 }
 
-/* line 243, ../../app/styles/style.scss */
+/* line 246, ../../app/styles/style.scss */
 .nofocus:focus {
   outline: none;
 }
 
-/* line 247, ../../app/styles/style.scss */
+/* line 250, ../../app/styles/style.scss */
 .md-chips md-chip {
   cursor: default;
   border-radius: 16px;
@@ -217,43 +221,43 @@ md-switch .md-thumb {
   position: relative;
 }
 
-/* line 261, ../../app/styles/style.scss */
+/* line 264, ../../app/styles/style.scss */
 md-chips.md-default-theme .md-chips, md-chips .md-chips {
   box-shadow: 0 0px transparent;
 }
 
 @media screen and (max-width: 736px) {
-  /* line 266, ../../app/styles/style.scss */
+  /* line 269, ../../app/styles/style.scss */
   md-card.main-card {
     height: 95vh;
     width: 95vw;
     padding: 0px;
   }
 
-  /* line 271, ../../app/styles/style.scss */
+  /* line 274, ../../app/styles/style.scss */
   .home {
     height: 95vh;
     border-radius: 10px;
   }
 
-  /* line 275, ../../app/styles/style.scss */
+  /* line 278, ../../app/styles/style.scss */
   .my-custom-stars .button .material-icons {
     font-size: 15px;
   }
 
-  /* line 278, ../../app/styles/style.scss */
+  /* line 281, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-on .material-icons {
     color: #0066CC;
     text-shadow: 2px 2px #666666;
   }
 
-  /* line 282, ../../app/styles/style.scss */
+  /* line 285, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-off .material-icons {
     color: #99ccff;
     text-shadow: 2px 2px #666666;
   }
 
-  /* line 286, ../../app/styles/style.scss */
+  /* line 289, ../../app/styles/style.scss */
   .scrollTable {
     overflow: scroll;
     height: 78vh;
