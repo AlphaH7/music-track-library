@@ -6,6 +6,10 @@ Web app that loads and displays music data from backend (django) framework.
 
   - http://ax.vacau.com/
 
+# Framework -
+
+  - Coded in Angular Material and Angularjs
+
 # Features -
 
   - Displays track and genre data.
@@ -27,4 +31,4 @@ mobile responsiveness in progress. will be updated soon .
 
 # -Powered By-
 ![N|Solid](http://www.nodejsconnect.com/sites/default/files/nodejsconnect-icon-angularjs.jpg )
-![N|Solid](https://blog.sdslabs.co/images/posts/grunt/logo.png)
+![N|Solid](https://seeklogo.com/images/G/grunt-logo-E890D57A06-seeklogo.com.png)
