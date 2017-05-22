@@ -170,6 +170,7 @@ md-toast .md-toast-content {
   animation:0.75s hide;
 }
 
+
 @keyframes hide {
   0% {
     opacity:1;
@@ -264,30 +265,75 @@ md-switch .md-thumb {
 md-chips.md-default-theme .md-chips, md-chips .md-chips {
 	box-shadow: 0 0px rgba(0,0,0,0.0);
 }
+md-toolbar.md-default-theme:not(.md-menu-toolbar).md-accent, md-toolbar:not(.md-menu-toolbar).md-accent {
+    height: 60px;
+    background-color:#575757;
+    color: rgb(255,255,255);
+}
 
-@media screen and (max-width:736px) {
-	md-card.main-card {
-	    height: 95vh;
-	    width: 95vw;
+@media screen and (max-width:960px) {
+  .header {
+      font-family: 'Lobster', cursive;
+      margin: 6px 0px;
+  }
+	md-card.main-card{
+      border-radius: 0px;
+	    height: 100vh;
+	    width: 100vw;
 			padding: 0px;
+			margin: 0px;
 	}
+  .ui{
+    height: 100vh;
+    width: 100vw;
+  }
 	.home{
-		height: 95vh;
-		border-radius: 10px;
+		height: 99vh;
 	}
 	.my-custom-stars .button .material-icons {
-	    font-size: 15px;
+	    font-size: 18px;
 	}
 	.my-custom-stars .star-button.star-on .material-icons {
 	    color: #0066CC;
-	    text-shadow: 2px 2px #666666;
+	    text-shadow: 0px 0px;
 	}
 	.my-custom-stars .star-button.star-off .material-icons {
 	    color: #99ccff;
-	    text-shadow: 2px 2px #666666;
+	    text-shadow: 0px 0px;
 	}
 	.scrollTable {
 	    overflow: scroll;
-	    height: 78vh;
+	    height: calc(82vh - 50px);
 	}
+  md-card.features {
+    width: inherit;
+    position: fixed;
+    vertical-align: middle;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    -webkit-box-shadow: -1px 21px 105px 21px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 21px 105px 21px rgba(0,0,0,0.75);
+    box-shadow: -1px 21px 105px 21px rgba(0,0,0,0.75);
+  }
+
+
+  .stuff-to-show {
+      position: relative;
+      -webkit-transition:bottom linear 0.5s;
+      transition:bottom linear 0.5s;
+      bottom: 0;
+  }
+
+  .stuff-to-show.ng-hide {
+  	bottom: -500px;
+  }
+
+  .stuff-to-show.ng-hide-add, .stuff-to-show.ng-hide-remove {
+  	display:flex!important;
+  }
+  button.md-fab.md-primary.navBtn.md-hue-2.md-button.md-ink-ripple{
+    height: 40px;
+    width: 40px;
+  }
 }

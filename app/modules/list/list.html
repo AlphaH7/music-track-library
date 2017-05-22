@@ -1,3 +1,28 @@
+<md-toolbar class="md-accent" hide-gt-md>
+  <div class="md-toolbar-tools" layout="row" layout-align="start center">
+    <div layout="row" layout-align="center center" flex="40">
+      <md-icon md-font-icon="mdi mdi-headphones mdi-24px"></md-icon>
+      <h2 class="header">Music Player</h2>
+    </div>
+    <span flex="30"> </span>
+    <div flex="30" layout="row" layout-align="space-around center">
+      <div class="box-one" ng-show="search && addBtn && editBtn">
+          <md-button class="md-fab md-primary navBtn md-hue-2" aria-label="Search" ng-click="search = !search">
+              <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-12px"></md-icon>
+          </md-button>
+      </div>
+
+      <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn">
+          <md-button class="md-fab md-primary navBtn md-hue-2" aria-label="Add">
+              <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-12px"></md-icon>
+          </md-button>
+      </div>
+
+    </div>
+
+  </div>
+</md-toolbar>
+
 <div layout="row" layout-align="space-around center" ng-init="search = true">
 
     <div flex-gt-sm="70"  flex-xs="100" flex-sm="100" layout="column" layout-align="center stretch">
@@ -66,37 +91,37 @@
         </div>
     </div>
 
-    <div hide-xs hide-sm flex-gt-sm="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
+    <div flex-gt-sm="30" layout="column" layout-align="center stretch" style="height:70vh" ng-init="addBtn = true">
 
-        <div>
+        <div hide-xs hide-sm >
             <md-icon id="spectrum" md-font-icon="mdi mdi-headphones mdi-48px"></md-icon>
             <h1 id="spectrum" class="header">Music Library</h1>
         </div>
-        <div class="box-one" ng-show="search && addBtn && editBtn">
+        <div class="box-one" ng-show="search && addBtn && editBtn" hide-xs hide-sm >
           <md-button class="md-raised md-primary md-hue-2" href="/#/app/genres"><span>Browse genres</span>
           </md-button>
         </div>
-        <div class="box-one" ng-show="search && addBtn && editBtn">
+        <div class="box-one" ng-show="search && addBtn && editBtn" hide-xs hide-sm >
           <md-button class="md-raised md-primary md-hue-2" href="/#/app/dashboard"><span>Back Home</span>
           </md-button>
         </div>
 
-        <div class="box-one" ng-show="search && addBtn && editBtn">
+        <div class="box-one" ng-show="search && addBtn && editBtn" hide-xs hide-sm >
             <md-button class="md-fab md-primary md-hue-2" aria-label="Search" ng-click="search = !search">
                 <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-24px"></md-icon>
             </md-button>
         </div>
 
-        <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn">
+        <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="addBtn = !addBtn" hide-xs hide-sm >
             <md-button class="md-fab md-primary md-hue-2" aria-label="Add">
                 <md-icon md-font-icon="mdi mdi-library-plus md-primary mdi-24px"></md-icon>
             </md-button>
         </div>
 
-        <md-card class="features box-one" ng-show="!search">
+        <md-card class="features box-one stuff-to-show" ng-show="!search" effect>
             <span class="right">
-    <md-button ng-click="search = !search" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
-    </span>
+            <md-button ng-click="search = !search" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+            </span>
             <div layout="row" layout-align="center center" ng-init="query = false">
                 <h4>Search Tracks</h4>
             </div>
@@ -116,10 +141,10 @@
             </form>
         </md-card>
 
-        <md-card class="features box-one" ng-show="!addBtn">
+        <md-card class="features box-one stuff-to-show" ng-show="!addBtn" effect>
             <span class="right">
-<md-button ng-click="addBtn = !addBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
-</span>
+            <md-button ng-click="addBtn = !addBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
+            </span>
             <form layout="column" name="addTrackForm" ng-submit="postTrack(s)" ng-init="s.genres = []" ng-show="clearResults != true">
                 <md-input-container flex="100" ng-show="clearResults == false" class="box-one" required layout-padding>
                     <label class="box-one">Title</label>
@@ -138,7 +163,7 @@
             <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="clearResults = false">Add More tracks</md-button>
         </md-card>
 
-        <md-card class="features box-one" ng-show="!editBtn" ng-init="editBtn = true">
+        <md-card class="features box-one stuff-to-show" ng-show="!editBtn" ng-init="editBtn = true" effect>
             <span class="right">
             <md-button ng-click="editBtn = !editBtn" class="md-icon-button"><md-icon md-font-icon="mdi mdi-close mdi-24px;"></md-icon></md-button>
             </span>
@@ -161,6 +186,7 @@
             </form>
             <md-button class="md-raised md-primary box-one" ng-show="clearResults == true" ng-click="Alltracks()">Load Track List</md-button>
         </md-card>
+
 
     </div>
 </div>

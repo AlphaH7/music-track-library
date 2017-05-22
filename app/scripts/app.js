@@ -65,5 +65,11 @@ app.config(function($stateProvider, $mdThemingProvider, $httpProvider, $urlRoute
 });
 app.constant('env','http://104.197.128.152:8000/v1/');
 app.controller('appCtrl',['$scope','$http','env','$state',function(s,http,env,state){
+  s.isOpen = false;
 
+    s.demo = {
+      isOpen: false,
+      count: 0,
+      selectedDirection: 'right'
+    };
 }]);
