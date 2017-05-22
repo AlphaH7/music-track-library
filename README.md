@@ -16,8 +16,7 @@ Web app that loads and displays music data from backend (django) framework.
   - can edit track and genre data.
   - can search track and genre data.
   - can add track and genre data.
-
-mobile responsiveness in progress. will be updated soon .
+  - Mobile Responsive. 
 
 # How to install and run -
   - $ git clone https://github.com/AlphaH7/shopping-cart / simply download zip / Github Desktop .

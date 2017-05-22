@@ -1,10 +1,11 @@
 <md-toolbar class="md-accent" hide-gt-md>
   <div class="md-toolbar-tools" layout="row" layout-align="start center">
-    <div layout="row" layout-align="center center" flex="40">
+    <div layout="row" layout-align="center center" flex="50">
+      <md-button href="/#/app/dashboard" class="md-icon-button"><md-icon md-font-icon="mdi mdi-arrow-left mdi-24px;"></md-icon></md-button>
       <md-icon md-font-icon="mdi mdi-headphones mdi-24px"></md-icon>
       <h2 class="header">Music Player</h2>
     </div>
-    <span flex="30"> </span>
+    <span flex="20"> </span>
     <div flex="30" layout="row" layout-align="space-around center">
       <div class="box-one" ng-show="search && addBtn && editBtn">
           <md-button class="md-fab md-primary navBtn md-hue-2" aria-label="Search" ng-click="search = !search">
@@ -37,7 +38,7 @@
                     <div layout="column" class="box-one" style="height:inherit" ng-show="!tracks" layout-align="center center">
                         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                     </div>
-                    <div ng-repeat="track in tracks" class="box-one" >
+                    <div ng-repeat="track in tracks" >
                       <div layout="row"  ng-show="tracks" class="tbody box-one">
                           <div flex="100" ng-show="!track.id" layout="row" layout-align="center center" class="scrollTable"><i>No tracks for the query</i>
                           </div>

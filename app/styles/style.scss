@@ -269,7 +269,11 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar).md-accent, md-toolbar:not(.md-
     height: 60px;
     background-color:#575757;
     color: rgb(255,255,255);
+    padding-left: 2px;
 }
+.md-toolbar-tools {
+    padding: 0px 16px 0px 0px !important;
+  }
 
 @media screen and (max-width:960px) {
   .header {

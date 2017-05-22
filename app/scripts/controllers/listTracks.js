@@ -62,14 +62,6 @@ angular.module('track-lib').controller('tracks', function($scope, trackService, 
         });
     };
 
-    $scope.isOpen = false;
-
-      $scope.fabBar = {
-        isOpen: false,
-        count: 0,
-        selectedDirection: 'left'
-      };
-
     $scope.searchTrack = function(d) {
         if ($scope.query == true) {
             x = new trackService;

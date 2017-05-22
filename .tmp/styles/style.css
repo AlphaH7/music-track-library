@@ -231,16 +231,22 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar).md-accent, md-toolbar:not(.md-
   height: 60px;
   background-color: #575757;
   color: white;
+  padding-left: 2px;
+}
+
+/* line 274, ../../app/styles/style.scss */
+.md-toolbar-tools {
+  padding: 0px 16px 0px 0px !important;
 }
 
 @media screen and (max-width: 960px) {
-  /* line 275, ../../app/styles/style.scss */
+  /* line 279, ../../app/styles/style.scss */
   .header {
     font-family: 'Lobster', cursive;
     margin: 6px 0px;
   }
 
-  /* line 279, ../../app/styles/style.scss */
+  /* line 283, ../../app/styles/style.scss */
   md-card.main-card {
     border-radius: 0px;
     height: 100vh;
@@ -249,41 +255,41 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar).md-accent, md-toolbar:not(.md-
     margin: 0px;
   }
 
-  /* line 286, ../../app/styles/style.scss */
+  /* line 290, ../../app/styles/style.scss */
   .ui {
     height: 100vh;
     width: 100vw;
   }
 
-  /* line 290, ../../app/styles/style.scss */
+  /* line 294, ../../app/styles/style.scss */
   .home {
     height: 99vh;
   }
 
-  /* line 293, ../../app/styles/style.scss */
+  /* line 297, ../../app/styles/style.scss */
   .my-custom-stars .button .material-icons {
     font-size: 18px;
   }
 
-  /* line 296, ../../app/styles/style.scss */
+  /* line 300, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-on .material-icons {
     color: #0066CC;
     text-shadow: 0px 0px;
   }
 
-  /* line 300, ../../app/styles/style.scss */
+  /* line 304, ../../app/styles/style.scss */
   .my-custom-stars .star-button.star-off .material-icons {
     color: #99ccff;
     text-shadow: 0px 0px;
   }
 
-  /* line 304, ../../app/styles/style.scss */
+  /* line 308, ../../app/styles/style.scss */
   .scrollTable {
     overflow: scroll;
     height: calc(82vh - 50px);
   }
 
-  /* line 308, ../../app/styles/style.scss */
+  /* line 312, ../../app/styles/style.scss */
   md-card.features {
     width: inherit;
     position: fixed;
@@ -294,24 +300,24 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar).md-accent, md-toolbar:not(.md-
     box-shadow: -1px 21px 105px 21px rgba(0, 0, 0, 0.75);
   }
 
-  /* line 321, ../../app/styles/style.scss */
+  /* line 325, ../../app/styles/style.scss */
   .stuff-to-show {
     position: relative;
     transition: bottom linear 0.5s;
     bottom: 0;
   }
 
-  /* line 328, ../../app/styles/style.scss */
+  /* line 332, ../../app/styles/style.scss */
   .stuff-to-show.ng-hide {
     bottom: -500px;
   }
 
-  /* line 332, ../../app/styles/style.scss */
+  /* line 336, ../../app/styles/style.scss */
   .stuff-to-show.ng-hide-add, .stuff-to-show.ng-hide-remove {
     display: flex !important;
   }
 
-  /* line 335, ../../app/styles/style.scss */
+  /* line 339, ../../app/styles/style.scss */
   button.md-fab.md-primary.navBtn.md-hue-2.md-button.md-ink-ripple {
     height: 40px;
     width: 40px;
