@@ -29,5 +29,5 @@ Web app that loads and displays music data from backend (django) framework.
   - It shall open a new tab of the app or access localhost:9000.
 
 # -Powered By-
- <img src="http://www.nodejsconnect.com/sites/default/files/nodejsconnect-icon-angularjs.jpg" height="140">
-  <img src="http://krampstudio.com/node-grunt-overview-presentation/img/yeoman_toolset.png" height="140">
+ <img src="http://ax.vacau.com/images/toolset.png" height="140">
+  
