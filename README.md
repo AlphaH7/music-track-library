@@ -29,5 +29,5 @@ Web app that loads and displays music data from backend (django) framework.
   - It shall open a new tab of the app or access localhost:9000.
 
 # -Powered By-
-![N|Solid](http://www.nodejsconnect.com/sites/default/files/nodejsconnect-icon-angularjs.jpg )
-![N|Solid](https://seeklogo.com/images/G/grunt-logo-E890D57A06-seeklogo.com.png)
+![N|Solid](http://static.globalpueblo.com/wp-content/uploads/2016/02/icon-angular-new.png)
+![N|Solid](http://krampstudio.com/node-grunt-overview-presentation/img/yeoman_toolset.png)
