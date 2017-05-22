@@ -34,8 +34,6 @@ module.exports = function (grunt) {
       options: {
         accessKeyId: "<%= aws.accessKeyId %>",
         secretAccessKey: "<%= aws.secretAccessKey %>",
-        bucket: "<%= aws.params.Bucket %>",
-        region: "<%= aws.region %>",
         access: "public-read"
       },
       build: {

@@ -18,7 +18,7 @@
                           </div>
                           <div flex="35" ng-click="moreDetails = !moreDetails" ng-show="track.id" class="center nofocus">{{track.title}}</div>
                           <div flex="55" ng-click="moreDetails = !moreDetails" layout="row" class="nofocus" layout-align="center center" ng-show="track.id">
-                              <jk-rating-stars max-rating="10" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
+                              <jk-rating-stars max-rating="9" rating="track.rating" class="center my-custom-stars" read-only="readOnly"></jk-rating-stars>
                           </div>
                           <md-button ng-show="track.id" flex="10" ng-click="editTrack(track)" class="md-icon-button">
                               <md-icon md-font-icon="mdi mdi-lead-pencil mdi-24px;"></md-icon>
@@ -125,8 +125,8 @@
                     <label class="box-one">Title</label>
                     <input ng-model="s.title" required>
                 </md-input-container>
-                <div style="width: inherit; overflow: scroll">
-                    <jk-rating-stars max-rating="10" class="center my-custom-stars" on-rating="addrating(rating)" ng-model="s.rating"></jk-rating-stars>
+                <div style="width: inherit; overflow: scroll" layout="row" layout-align="center center">
+                    <jk-rating-stars max-rating="9" class="center my-custom-stars" on-rating="addrating(rating)" ng-model="s.rating"></jk-rating-stars>
                 </div>
                 <div layout="column" layout-align="center stretch" layout-padding>
                     <md-chips ng-model="s.genres" md-removable="true" placeholder="Enter a genre" delete-button-label="Remove genre" delete-hint="Press delete to remove genre" secondary-placeholder="+Tag"></md-chips>
@@ -150,8 +150,8 @@
                     <label class="box-one">Title</label>
                     <input ng-model="b.title" required>
                 </md-input-container>
-                <div style="width: inherit; overflow: scroll">
-                    <jk-rating-stars max-rating="10" class="center my-custom-stars" on-rating="addTrackrating(rating)" ng-model="b.rating"></jk-rating-stars>
+                <div style="width: inherit; overflow: scroll" layout="row" layout-align="center center">
+                    <jk-rating-stars max-rating="9" class="center my-custom-stars" on-rating="addTrackrating(rating)" ng-model="b.rating"></jk-rating-stars>
                 </div>
                 <div layout="row" layout-align="center center">
                     <md-chips ng-model="b.genres" md-removable="true" placeholder="Enter a genre" delete-button-label="Remove genre" delete-hint="Press delete to remove genre" secondary-placeholder="+Tag"></md-chips>
