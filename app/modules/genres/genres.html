@@ -5,8 +5,14 @@
       <md-icon md-font-icon="mdi mdi-headphones mdi-24px"></md-icon>
       <h2 class="header">Music Player</h2>
     </div>
-    <span flex="20"> </span>
-    <div flex="30" layout="row" layout-align="space-around center">
+    <span flex="10"> </span>
+    <div flex="40" layout="row" layout-align="space-around center">
+      <div class="box-one" ng-show="search && addBtn && editBtn" ng-click="Allgenre()">
+          <md-button class="md-fab md-primary navBtn md-hue-2" aria-label="Add">
+              <md-icon md-font-icon="mdi mdi-refresh md-primary mdi-12px"></md-icon>
+          </md-button>
+      </div>
+
       <div class="box-one" ng-show="search && addBtn && editBtn">
           <md-button class="md-fab md-primary navBtn md-hue-2" aria-label="Search" ng-click="search = !search">
               <md-icon md-font-icon="mdi mdi-magnify md-primary mdi-12px"></md-icon>
