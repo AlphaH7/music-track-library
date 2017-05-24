@@ -19,6 +19,15 @@ Web app that loads and displays music data from backend (django) framework.
   - Mobile Responsive. 
 
 # How to install and run -
+
+### Quickstart (cut the crap):
+
+ - ```$ git clone git@github.com:AlphaH7/music-track-library.git``` 
+ - ``` sudo gem install compass && npm install -g grunt-cli && npm install && bower install && grunt serve```
+
+
+### Detailed Guide: 
+
   - run ```$ git clone git@github.com:AlphaH7/music-track-library.git```  or simply download zip.
   - make sure you have grunt-cli and compass server install.
   - to install compass server - ``` gem install compass ``` for mac , ``` yum install gcc ruby-devel rubygems ``` for linux based users
